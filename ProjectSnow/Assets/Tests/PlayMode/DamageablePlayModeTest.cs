@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using DamageSystem;
+using Game.DamageSystem;
 
 public class DamageablePlayModeTest
 {
@@ -31,7 +31,7 @@ public class DamageablePlayModeTest
         Damageable dmgEnemy = enemy.AddComponent<Damageable>();
 
         //Creating damageInfo for the player.
-        DamageInfo info;
+        DamageInfo info = new DamageInfo();
         info.Transmitter = dmgPlayer;
         info.Damage = 5;
         
@@ -40,7 +40,7 @@ public class DamageablePlayModeTest
         dmgPlayer.SetHealth(50);
         
         //Adding shield to enemy
-        dmgEnemy.SetShield(10);
+        dmgEnemy.Shield.SetAmount(10);
         
         //Damaging the enemy.
         dmgEnemy.DoDamage(info);

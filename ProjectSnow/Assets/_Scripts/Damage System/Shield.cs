@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace DamageSystem
+namespace Game.DamageSystem
 {
     [System.Serializable]
-    public class Shield
+    public class Shield : IElemental
     {
         #region Private Fields
         [SerializeField] private int _shieldAmount;
         [SerializeField] private Element _element;
+        public Element Element => _element;
         #endregion
 
         #region Constructors
@@ -28,6 +29,8 @@ namespace DamageSystem
         
         #region Public fields
         public int ShieldAmount => _shieldAmount;
+
+        public bool IsActive = true;
 
         #endregion
 
@@ -51,8 +54,14 @@ namespace DamageSystem
             _element = element;
         }
 
-        public void SetShieldAmount(int value) => _shieldAmount = value;
+        public void SetAmount(int value) => _shieldAmount = value;
+
+        public void AddAmount(int value) => _shieldAmount += value;
 
         #endregion
+        public void ChangeElement(Element newElement)
+        {
+            _element = newElement;
+        }
     }
 }

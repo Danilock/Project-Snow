@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DamageSystem
+namespace Game.DamageSystem
 {
     /// <summary>
     /// Representation of an element in game.

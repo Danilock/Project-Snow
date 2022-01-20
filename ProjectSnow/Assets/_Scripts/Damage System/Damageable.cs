@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,12 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using  System.Linq;
 
-namespace DamageSystem
+namespace Game.DamageSystem
 {
     /// <summary>
     /// Representation of a damageable entity in game.
     /// </summary>
-    public class Damageable : MonoBehaviour
+    public class Damageable : MonoBehaviour, IElemental
     {
         #region Protected/Private Fields
         [SerializeField] protected Element _element;
@@ -19,9 +20,15 @@ namespace DamageSystem
         [SerializeField] protected int _startHealth = 1;
         [SerializeField] protected int _currentHealth = 1;
 
-        [SerializeField] protected Shield _shield = new Shield();
+        public Shield Shield = new Shield();
         
-        [SerializeField] protected bool _invulnerable = false;
+        [SerializeField] private bool _invulnerable = false;
+
+        public bool IsDead
+        {
+            get;
+            protected set;
+        }
         #endregion
 
         #region Public Fields
@@ -33,9 +40,11 @@ namespace DamageSystem
 
         public int CurrentHealth => _currentHealth;
 
-        public bool Invulnerable => _invulnerable;
-
-        public Shield Shield => _shield;
+        public bool Invulnerable
+        {
+            get => _invulnerable;
+            protected set => _invulnerable = value;
+        }
 
         #endregion
         
@@ -47,18 +56,29 @@ namespace DamageSystem
 
         #region Methods
 
+        protected void Start()
+        {
+            _currentHealth = _startHealth;
+        }
+
+        private void OnValidate()
+        {
+            if (_currentHealth > _startHealth)
+                _startHealth = _currentHealth;
+        }
+
         /// <summary>
         /// Do damage to this entity by receiving a damage info struct.
         /// </summary>
         /// <param name="incomingDamage"></param>
         public virtual void DoDamage(DamageInfo incomingDamage)
         {
-            if (_invulnerable)
+            if (_invulnerable || IsDead)
                 return;
 
-            if (_shield.ShieldAmount > 0)
+            if (Shield.ShieldAmount > 0)
             {
-                _shield.DamageShield(incomingDamage);
+                Shield.DamageShield(incomingDamage);
                 return;
             }
 
@@ -79,7 +99,7 @@ namespace DamageSystem
         /// Sets the health immediately to the specified value.
         /// </summary>
         /// <param name="value"></param>
-        public void SetHealth(int value)
+        public virtual void SetHealth(int value)
         {
             if (value > _startHealth)
                 _startHealth = value;
@@ -87,7 +107,21 @@ namespace DamageSystem
             _currentHealth = value;
         }
 
-        public void SetShield(int value) => _shield.SetShieldAmount(value);
+        public virtual void ChangeElement(Element newElement)
+        {
+            _element = newElement;
+        }
+
+        #region Invulnerability
+        public virtual void SetInvulnerableForSeconds(float seconds) => StartCoroutine(SetInvulnerableForSeconds_CO(seconds));
+
+        protected virtual IEnumerator SetInvulnerableForSeconds_CO(float seconds)
+        {
+            Invulnerable = true;
+            yield return new WaitForSeconds(seconds);
+            Invulnerable = false;
+        }
+        #endregion
 
         #endregion
     }
@@ -106,8 +140,11 @@ namespace DamageSystem
             
             int damageResult = damageAamount;
 
+            //If the transmitter has a weakest element then we increase the damage by 0.25%
             if (transmitter.StrongAgainst.Contains(receiver))
-                damageResult += (int)(damageResult * .25);
+                damageResult += (int) (damageResult * .25);
+            
+            //Otherwise, we decrease the damage by 50% 
             else if (transmitter.WeakAgainst.Contains(receiver))
                 damageResult -= (int) (damageResult * .50);
 
