@@ -56,7 +56,7 @@ namespace Game.DamageSystem
 
         #region Methods
 
-        protected void Start()
+        protected virtual void Start()
         {
             _currentHealth = _startHealth;
         }
