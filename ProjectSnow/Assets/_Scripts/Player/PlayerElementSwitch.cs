@@ -61,6 +61,7 @@ namespace Game.Player
             
             _playerDamageable.ChangeElement(_elemets[index]);
             _attack.ChangeElement(_elemets[index]);
+            _playerDamageable.Shield.ChangeElement(_elemets[index]);
 
             StartCoroutine(HandleCooldown_CO());
         }

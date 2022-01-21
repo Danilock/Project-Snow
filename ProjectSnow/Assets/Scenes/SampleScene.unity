@@ -388,7 +388,7 @@ MonoBehaviour:
   _startHealth: 15
   _currentHealth: 15
   Shield:
-    _shieldAmount: 0
+    _shieldAmount: 15
     _element: {fileID: 0}
     IsActive: 0
   _invulnerable: 0
