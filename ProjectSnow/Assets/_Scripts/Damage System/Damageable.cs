@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using  System.Linq;
+using Sirenix.OdinInspector;
 
 namespace Game.DamageSystem
 {
@@ -18,6 +19,7 @@ namespace Game.DamageSystem
         
         //Health
         [SerializeField] protected int _startHealth = 1;
+        [ReadOnly]
         [SerializeField] protected int _currentHealth = 1;
 
         public Shield Shield = new Shield();
@@ -64,7 +66,7 @@ namespace Game.DamageSystem
         private void OnValidate()
         {
             if (_currentHealth > _startHealth)
-                _startHealth = _currentHealth;
+                _currentHealth = _startHealth;
         }
 
         /// <summary>

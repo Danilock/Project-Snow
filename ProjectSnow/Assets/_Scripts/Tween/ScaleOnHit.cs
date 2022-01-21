@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Game.Tween
 {
+    [AddComponentMenu("Tween/ScaleOnHit")]
     [RequireComponent(typeof(Damageable))]
     public class ScaleOnHit : MonoBehaviour
     {

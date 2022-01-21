@@ -5,6 +5,7 @@ using Game.DamageSystem;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
 
 namespace Game.AbilitySystem
 {
@@ -13,8 +14,9 @@ namespace Game.AbilitySystem
     /// </summary>
     public class BaseAbility : MonoBehaviour
     {
-        [Header("Cooldown")] 
+        [FoldoutGroup("Cooldown")] 
         [SerializeField] protected float Cooldown = .5f;
+        [FoldoutGroup("Cooldown")]
         [SerializeField] protected bool CanUse = true;
 
         /// <summary>
@@ -42,9 +44,11 @@ namespace Game.AbilitySystem
             }
         }
 
-        [Header("Energy")] 
+        [FoldoutGroup("Energy")] 
         [SerializeField] protected bool IsSourceRequired = true;
+        [FoldoutGroup("Energy")]
         [SerializeField] protected EnergySource EnergySource;
+        [FoldoutGroup("Energy")]
         [SerializeField] protected float RequiredEnergy;
 
         protected IEnumerator HandleCooldownCoroutine;

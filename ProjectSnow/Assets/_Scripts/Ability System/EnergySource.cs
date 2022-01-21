@@ -1,17 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.Client.BaseCommands.BranchExplorer.ExplorerData;
 using Game.DamageSystem;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Game.AbilitySystem
 {
     public class EnergySource : MonoBehaviour
     {
+        [FoldoutGroup("Regeneration")]
         [SerializeField] protected float RegenerationRate, Seconds;
-
-        [SerializeField] protected float MaxEnergy, CurrentEnergy;
+        
+        [FoldoutGroup("Regeneration")]
         public bool CanRegenerate, IsRegenerating;
+
+        [FoldoutGroup("Energy Amount")] [SerializeField]
+        protected float MaxEnergy;
+        [FoldoutGroup("Energy Amount"), ReadOnly, SerializeField] protected float CurrentEnergy;
         private IEnumerator RegenerateEnergyCoroutine;
         public float GetCurrentEnergy => CurrentEnergy;
 
@@ -26,7 +33,7 @@ namespace Game.AbilitySystem
         protected void OnValidate()
         {
             if (CurrentEnergy > MaxEnergy)
-                MaxEnergy = CurrentEnergy;
+                CurrentEnergy = MaxEnergy;
         }
 
         /// <summary>
