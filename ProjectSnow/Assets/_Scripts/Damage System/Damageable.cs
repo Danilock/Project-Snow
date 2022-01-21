@@ -50,7 +50,7 @@ namespace Game.DamageSystem
         
         #region Events
 
-        public UnityAction<DamageInfo> OnTakeDamage, OnDead;
+        public UnityAction<DamageInfo> OnTakeDamage, OnDeath;
 
         #endregion
 
@@ -83,14 +83,18 @@ namespace Game.DamageSystem
             }
 
             _currentHealth -= DamageCalculations.CalculateDamageBasedInElements
-                (
-                    incomingDamage.Damage, 
-                    _element, 
-                    incomingDamage.Transmitter.Element
-                );
+            (
+                incomingDamage.Damage, 
+                _element, 
+                incomingDamage.Transmitter.Element
+            );
 
             if (_currentHealth <= 0)
-                OnDead?.Invoke(incomingDamage);
+            {
+                OnDeath?.Invoke(incomingDamage);
+                IsDead = true;
+                _currentHealth = 0;
+            }
             else
                 OnTakeDamage?.Invoke(incomingDamage);
         }

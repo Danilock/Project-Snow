@@ -26,7 +26,11 @@ namespace Game.Player
             );
 
             if (_currentHealth <= 0)
-                OnDead?.Invoke(incomingDamage);
+            {
+                OnDeath?.Invoke(incomingDamage);
+                IsDead = true;
+                _currentHealth = 0;
+            }
             else
                 OnTakeDamage?.Invoke(incomingDamage);
         }

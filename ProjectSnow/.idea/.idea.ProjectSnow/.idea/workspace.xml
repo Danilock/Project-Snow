@@ -7,14 +7,11 @@
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayMode/DamageablePlayModeTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayMode/DamageablePlayModeTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Ability System/BaseAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Ability System/BaseAbility.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerElementSwitch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerElementSwitch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,8 @@
       <workItem from="1642272611879" duration="9089000" />
       <workItem from="1642374871312" duration="4645000" />
       <workItem from="1642550117103" duration="7625000" />
-      <workItem from="1642623669315" duration="8668000" />
+      <workItem from="1642623669315" duration="10099000" />
+      <workItem from="1642732913151" duration="6881000" />
     </task>
     <servers />
   </component>

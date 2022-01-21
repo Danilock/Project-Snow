@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Game.DamageSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Game.Abilities;
+using Game.AbilitySystem;
 using Game.DamageSystem.Attacks;
 
 namespace Game.Player

@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.DamageSystem;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Abilities
+namespace Game.AbilitySystem
 {
     /// <summary>
     /// Base class for abilities.
@@ -14,6 +16,36 @@ namespace Game.Abilities
         [Header("Cooldown")] 
         [SerializeField] protected float Cooldown = .5f;
         [SerializeField] protected bool CanUse = true;
+
+        /// <summary>
+        /// Can use ability taking in count mana.
+        /// </summary>
+        public bool CanUseAbility
+        {
+            get
+            {
+                if (IsSourceRequired)
+                {
+                    if (EnergySource.GetCurrentEnergy < RequiredEnergy)
+                        return false;
+                    else
+                        return true;
+                }
+                else
+                {
+                    return CanUse;
+                }
+            }
+            protected set
+            {
+                CanUse = value;
+            }
+        }
+
+        [Header("Energy")] 
+        [SerializeField] protected bool IsSourceRequired = true;
+        [SerializeField] protected EnergySource EnergySource;
+        [SerializeField] protected float RequiredEnergy;
 
         protected IEnumerator HandleCooldownCoroutine;
 
@@ -25,6 +57,9 @@ namespace Game.Abilities
         protected virtual void Awake()
         {
             HandleCooldownCoroutine = HandleCooldown_CO();
+            
+            if(EnergySource == null)
+                EnergySource = GetComponent<EnergySource>();
         }
 
         /// <summary>
@@ -32,10 +67,12 @@ namespace Game.Abilities
         /// </summary>
         public virtual void TriggerAbility()
         {
-            if(!CanUse)
+            if(!CanUseAbility)
                 return;
+
+            OnAbilityUse?.Invoke();
             
-            OnAbilityUse.Invoke();
+            EnergySource.UseEnergy(RequiredEnergy);
 
             StartCoroutine(HandleCooldownCoroutine);
         }

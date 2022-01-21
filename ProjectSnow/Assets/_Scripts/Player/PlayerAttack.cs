@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Game.Abilities;
+using Game.AbilitySystem;
 using Game.DamageSystem.Attacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
