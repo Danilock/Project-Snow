@@ -13,11 +13,11 @@ namespace Game.DamageSystem
         /// Who is causing this damage.
         /// </summary>
         public Damageable Transmitter;
-        public int Damage;
+        public float Damage;
 
         public DamageInfo(){ }
 
-        public DamageInfo(Damageable transmitter, int damage)
+        public DamageInfo(Damageable transmitter, float damage)
         {
             this.Transmitter = transmitter;
             this.Damage = damage;

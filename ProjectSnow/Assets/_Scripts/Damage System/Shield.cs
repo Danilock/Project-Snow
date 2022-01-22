@@ -10,7 +10,7 @@ namespace Game.DamageSystem
     public class Shield : IElemental
     {
         #region Private Fields
-        [SerializeField] private int _shieldAmount;
+        [SerializeField] private float _shieldAmount;
         [SerializeField] private Element _element;
         public Element Element => _element;
         #endregion
@@ -19,7 +19,7 @@ namespace Game.DamageSystem
 
         public  Shield() { }
 
-        public Shield(Element element, int shieldAmount)
+        public Shield(Element element, float shieldAmount)
         {
             _element = element;
             _shieldAmount = shieldAmount;
@@ -28,7 +28,7 @@ namespace Game.DamageSystem
         #endregion
         
         #region Public fields
-        public int ShieldAmount => _shieldAmount;
+        public float ShieldAmount => _shieldAmount;
 
         public bool IsActive = true;
 

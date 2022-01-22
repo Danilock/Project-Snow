@@ -22,7 +22,7 @@ namespace Game.UI
 
         public override void Init(DamageInfo damageInfo)
         {
-            _tmpText.text = damageInfo.Damage.ToString();
+            _tmpText.text = damageInfo.Damage > 1 ? Mathf.Round(damageInfo.Damage).ToString() : damageInfo.Damage.ToString();
 
             _canvasGroup.DOFade(0f, .5f);
             transform.DOMoveY(transform.position.y + 5f, .5f).OnComplete(() => gameObject.SetActive(false));

@@ -20,9 +20,9 @@ namespace Game.DamageSystem
         
         //Health
         [FoldoutGroup("Health")]
-        [SerializeField] protected int _startHealth = 1;
+        [SerializeField] protected float _startHealth = 1;
         [ReadOnly, FoldoutGroup("Health")]
-        [SerializeField, ProgressBar("_startHealth", "_currentHealth", ColorGetter = "GetColorBar")] protected int _currentHealth = 1;
+        [SerializeField, ProgressBar("_startHealth", "_currentHealth", ColorGetter = "GetColorBar")] protected float _currentHealth = 1;
 
         private Color GetColorBar
         {
@@ -50,9 +50,9 @@ namespace Game.DamageSystem
         
         public Element Element => _element;
 
-        public int StartHealth => _startHealth;
+        public float StartHealth => _startHealth;
 
-        public int CurrentHealth => _currentHealth;
+        public float CurrentHealth => _currentHealth;
 
         public bool Invulnerable
         {
@@ -96,7 +96,7 @@ namespace Game.DamageSystem
                 return;
             }
 
-            int endDamage = DamageCalculations.CalculateDamageBasedInElements
+            float endDamage = DamageCalculations.CalculateDamageBasedInElements
             (
                 incomingDamage.Damage, 
                 _element, 

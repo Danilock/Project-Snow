@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dddd53f3fa45444c8a545b53db3f029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 1
+  Cooldown: 0.2
   CanUse: 1
   IsSourceRequired: 1
   EnergySource: {fileID: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
-  DamageAmount: 10
+  DamageAmount: 3
   Layers:
     serializedVersion: 2
     m_Bits: 128
@@ -662,8 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-  _startHealth: 100
-  _currentHealth: 1
+  _startHealth: 1000
+  _currentHealth: -446
   Shield:
     _shieldAmount: 0
     _element: {fileID: 0}
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _strongDamage: 70
-  _weakerDamage: 70
+  _weakerDamage: 98
 --- !u!4 &726786266
 Transform:
   m_ObjectHideFlags: 0

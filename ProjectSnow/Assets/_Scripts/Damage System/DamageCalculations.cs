@@ -19,20 +19,20 @@ namespace Game.DamageSystem
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static int CalculateDamageBasedInElements(int damageAmount, Element receiver, Element transmitter)
+        public static float CalculateDamageBasedInElements(float damageAmount, Element receiver, Element transmitter)
         {
             if (receiver == null || transmitter == null)
                 return damageAmount;
 
-            int damageResult = damageAmount;
+            float damageResult = damageAmount;
 
             //If the transmitter has a weakest element then we increase the damage.
             if (transmitter.StrongAgainst.Contains(receiver))
-                damageResult += (int) (damageResult * (_instance._weakerDamage / 100));
+                damageResult += (damageResult * (_instance._weakerDamage / 100));
 
             //Otherwise, we decrease the damage.
             else if (transmitter.WeakAgainst.Contains(receiver))
-                damageResult -= (int) (damageResult * (_instance._strongDamage / 100));
+                damageResult -= (damageResult * (_instance._strongDamage / 100));
 
             return damageResult;
         }

@@ -29,7 +29,7 @@ namespace Game.DamageSystem.Attacks
         
         #region Damage Settings
         [FoldoutGroup("Damage Settings")]
-        [SerializeField] protected int DamageAmount;
+        [SerializeField] protected float DamageAmount;
         
         [FoldoutGroup("Damage Settings")]
         [SerializeField] protected LayerMask Layers;
