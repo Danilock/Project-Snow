@@ -28,8 +28,8 @@ namespace Game.DamageSystem
         {
             get
             {
-                return this._currentHealth > (int) _startHealth * .3 ? Color.green :
-                    this._currentHealth > (int)_startHealth * .7f ? Color.yellow : Color.red;
+                return this._currentHealth >  _startHealth * .7f ? Color.green :
+                    this._currentHealth > _startHealth * .3f ? Color.yellow : Color.red;
             }
         }
         

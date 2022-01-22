@@ -566,6 +566,7 @@ GameObject:
   - component: {fileID: 643948633}
   - component: {fileID: 643948634}
   - component: {fileID: 643948631}
+  - component: {fileID: 643948635}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -686,6 +687,26 @@ MonoBehaviour:
   _vibration: 25
   _target: {fileID: 1752241291}
   _canPunch: 1
+--- !u!114 &643948635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643948628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e2a64348d7fbb47be806f0d26e40c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBars:
+  - Value: 70
+    Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
+  - Value: 20
+    Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
+  _currentHealthBar:
+    Value: 0
+    Element: {fileID: 0}
 --- !u!1 &726786264
 GameObject:
   m_ObjectHideFlags: 0

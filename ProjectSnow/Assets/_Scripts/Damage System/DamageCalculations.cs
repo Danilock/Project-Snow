@@ -34,7 +34,6 @@ namespace Game.DamageSystem
             else if (transmitter.WeakAgainst.Contains(receiver))
                 damageResult -= (int) (damageResult * (_instance._strongDamage / 100));
 
-            Debug.Log(damageResult);
             return damageResult;
         }
     }
