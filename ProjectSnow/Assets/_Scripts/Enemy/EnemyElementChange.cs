@@ -24,18 +24,19 @@ namespace Game.Enemy
 
         #region Properties
 
+        /// <summary>
+        /// If the current health of the enemy is lower than the Value specified in the current bar then we return true.
+        /// </summary>
         private bool CurrentBarIsLowerThanHealthValue
         {
             get
             {
-                if (_damageable.CurrentHealth > (float)_damageable.StartHealth * ((float)_currentHealthBar.Value / 100))
-                {
-                    return false;
-                }
-                else
+                if (_damageable.CurrentHealth < (float)_damageable.StartHealth * ((float)_currentHealthBar.Value / 100))
                 {
                     return true;
                 }
+
+                return false;
             }
         }
         #endregion
