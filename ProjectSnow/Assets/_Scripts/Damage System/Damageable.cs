@@ -18,12 +18,14 @@ namespace Game.DamageSystem
         [SerializeField] protected Element _element;
         
         //Health
+        [FoldoutGroup("Health")]
         [SerializeField] protected int _startHealth = 1;
-        [ReadOnly]
+        [ReadOnly, FoldoutGroup("Health")]
         [SerializeField] protected int _currentHealth = 1;
 
+        [FoldoutGroup("Shield")]
         public Shield Shield = new Shield();
-        
+        [FoldoutGroup("Invulnerability")]
         [SerializeField] private bool _invulnerable = false;
 
         public bool IsDead
@@ -84,12 +86,16 @@ namespace Game.DamageSystem
                 return;
             }
 
-            _currentHealth -= DamageCalculations.CalculateDamageBasedInElements
+            int endDamage = DamageCalculations.CalculateDamageBasedInElements
             (
                 incomingDamage.Damage, 
                 _element, 
                 incomingDamage.Transmitter.Element
             );
+
+            _currentHealth -= endDamage;
+
+            incomingDamage.Damage = endDamage;
 
             if (_currentHealth <= 0)
             {

@@ -19,20 +19,6 @@ namespace ObjectPooling
 
         #endregion
 
-        public void InitializePool()
-        {
-            GameObject parent = new GameObject($"{ObjectToInstantiate.name} Pool Objects");
-            
-            for (int i = 0; i < Amount; i++)
-            {
-                GameObject instanceCreated = new GameObject($"{ObjectToInstantiate.name} {i}");
-                instanceCreated.SetActive(false);
-                instanceCreated.transform.SetParent(parent.transform);
-                
-                Instances.Add(instanceCreated);
-            }
-        }
-
         /// <summary>
         /// Returns an object from this pool by activating it.
         /// </summary>

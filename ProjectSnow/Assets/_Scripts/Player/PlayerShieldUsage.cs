@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using DG.Tweening;
 using Game.AbilitySystem;
 using Game.DamageSystem;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Game.Player
     public class PlayerShieldUsage : BaseAbility
     {
         [SerializeField] private Damageable _damageable;
+
+        [SerializeField] private float _myFloat;
 
         private void Start()
         {

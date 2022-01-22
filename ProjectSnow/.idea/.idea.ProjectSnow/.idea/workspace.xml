@@ -6,28 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Earth.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Earth.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Fire.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Fire.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Water.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Water.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Ability System/BaseAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Ability System/BaseAbility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/TestPool.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/TestPool.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Ability System/EnergySource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Ability System/EnergySource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/MeleeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/MeleeAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/BaseAbilityEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/BaseAbilityEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/EnergySourceEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Editor/EnergySourceEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Singleton/PersistentSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Singleton/PersistentSingleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tween/ScaleOnHit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tween/ScaleOnHit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/IElemental.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/IElemental.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Object Pooling/ObjectPooler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object Pooling/ObjectPooler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Object Pooling/Pool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Object Pooling/Pool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +65,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Builds/ProjectSnow.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Danilock\Desktop\Builds" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -107,6 +108,7 @@
       <workItem from="1642623669315" duration="10099000" />
       <workItem from="1642732913151" duration="7885000" />
       <workItem from="1642784723335" duration="11778000" />
+      <workItem from="1642806620755" duration="4456000" />
     </task>
     <servers />
   </component>

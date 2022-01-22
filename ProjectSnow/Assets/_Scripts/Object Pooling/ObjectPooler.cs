@@ -22,7 +22,16 @@ namespace ObjectPooling
         {
             foreach (Pool currentPool in Pools.Values)
             {
-                currentPool.InitializePool();
+                GameObject parent = new GameObject($"{currentPool.ObjectToInstantiate.name} Pool Objects");
+            
+                for (int i = 0; i < currentPool.Amount; i++)
+                {
+                    GameObject instanceCreated = Instantiate(currentPool.ObjectToInstantiate, parent.transform);
+                    instanceCreated.SetActive(false);
+                    instanceCreated.transform.SetParent(parent.transform);
+                
+                    currentPool.Instances.Add(instanceCreated);
+                }
             }
         }
 
