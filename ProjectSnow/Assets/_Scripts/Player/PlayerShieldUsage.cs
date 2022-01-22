@@ -14,8 +14,6 @@ namespace Game.Player
     {
         [SerializeField] private Damageable _damageable;
 
-        [SerializeField] private float _myFloat;
-
         private void Start()
         {
             if (_damageable == null)

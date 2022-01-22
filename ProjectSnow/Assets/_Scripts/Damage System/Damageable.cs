@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using  System.Linq;
+using System.Runtime.CompilerServices;
 using Sirenix.OdinInspector;
 
 namespace Game.DamageSystem
@@ -21,8 +22,17 @@ namespace Game.DamageSystem
         [FoldoutGroup("Health")]
         [SerializeField] protected int _startHealth = 1;
         [ReadOnly, FoldoutGroup("Health")]
-        [SerializeField] protected int _currentHealth = 1;
+        [SerializeField, ProgressBar("_startHealth", "_currentHealth", ColorGetter = "GetColorBar")] protected int _currentHealth = 1;
 
+        private Color GetColorBar
+        {
+            get
+            {
+                return this._currentHealth > (int) _startHealth * .3 ? Color.green :
+                    this._currentHealth > (int)_startHealth * .7f ? Color.yellow : Color.red;
+            }
+        }
+        
         [FoldoutGroup("Shield")]
         public Shield Shield = new Shield();
         [FoldoutGroup("Invulnerability")]
@@ -136,31 +146,5 @@ namespace Game.DamageSystem
         #endregion
 
         #endregion
-    }
-
-    public class DamageCalculations
-    {
-        /// <summary>
-        /// Calculate damage based in the elements of the two objects. Adding or removing damage to the transmitter.
-        /// </summary>
-        /// <param name="info"></param>
-        /// <returns></returns>
-        public static int CalculateDamageBasedInElements(int damageAamount, Element receiver, Element transmitter)
-        {
-            if (receiver == null || transmitter == null)
-                return damageAamount;
-            
-            int damageResult = damageAamount;
-
-            //If the transmitter has a weakest element then we increase the damage by 0.25%
-            if (transmitter.StrongAgainst.Contains(receiver))
-                damageResult += (int) (damageResult * .25);
-            
-            //Otherwise, we decrease the damage by 50% 
-            else if (transmitter.WeakAgainst.Contains(receiver))
-                damageResult -= (int) (damageResult * .50);
-
-            return damageResult;
-        }
     }
 }

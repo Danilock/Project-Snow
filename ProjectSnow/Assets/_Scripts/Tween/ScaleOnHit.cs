@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Game.DamageSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Tween
@@ -11,11 +12,16 @@ namespace Game.Tween
     [RequireComponent(typeof(Damageable))]
     public class ScaleOnHit : MonoBehaviour
     {
-        [Header("Tween Settings")] 
+        [FoldoutGroup("Tween Settings")] 
         [SerializeField] private Vector2 _punchScaleSize;
 
+        [FoldoutGroup("Tween Settings")] 
         [SerializeField] private float _duration = 1;
+        
+        [FoldoutGroup("Tween Settings")] 
         [SerializeField] private int _elasticity;
+        
+        [FoldoutGroup("Tween Settings")] 
         [SerializeField] private int _vibration;
 
         [Header("Target")] 

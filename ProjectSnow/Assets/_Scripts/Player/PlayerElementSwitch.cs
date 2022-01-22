@@ -26,8 +26,15 @@ namespace Game.Player
             _attack = GetComponent<Attack>();
         }
 
-        private void Start()
+        private void OnDisable()
         {
+            PlayerInput.Instance.Actions.Player.SelectFirstElement.performed -= SelectFirstElementOnperformed;
+            PlayerInput.Instance.Actions.Player.SelectSecondElement.performed -= SelectSecondElementOnperformed; 
+            PlayerInput.Instance.Actions.Player.SelectThirdElement.performed -= SelectThirdElementOnperformed; 
+        }
+
+        private void Start()
+        {   
             PlayerInput.Instance.Actions.Player.SelectFirstElement.performed += SelectFirstElementOnperformed;
             PlayerInput.Instance.Actions.Player.SelectSecondElement.performed += SelectSecondElementOnperformed; 
             PlayerInput.Instance.Actions.Player.SelectThirdElement.performed += SelectThirdElementOnperformed; 

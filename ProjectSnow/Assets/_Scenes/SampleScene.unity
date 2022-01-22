@@ -451,7 +451,6 @@ MonoBehaviour:
   EnergySource: {fileID: 262527460}
   RequiredEnergy: 7
   _damageable: {fileID: 262527456}
-  _myFloat: 0
 --- !u!114 &262527460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,8 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-  _startHealth: 2046
-  _currentHealth: 2021
+  _startHealth: 100
+  _currentHealth: 1
   Shield:
     _shieldAmount: 0
     _element: {fileID: 0}
@@ -687,6 +686,51 @@ MonoBehaviour:
   _vibration: 25
   _target: {fileID: 1752241291}
   _canPunch: 1
+--- !u!1 &726786264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726786266}
+  - component: {fileID: 726786265}
+  m_Layer: 0
+  m_Name: Damage Calculations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &726786265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726786264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d507d192cf6af4692739c101c34687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _strongDamage: 70
+  _weakerDamage: 70
+--- !u!4 &726786266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726786264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6419406, y: -2.0942848, z: -0.5460254}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146978083
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1480290514
 GameObject:
