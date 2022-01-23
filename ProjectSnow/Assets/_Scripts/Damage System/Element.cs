@@ -14,5 +14,8 @@ namespace Game.DamageSystem
         public string Name;
 
         public List<Element> StrongAgainst, WeakAgainst;
+
+        [Header("Element color representation, used in UI's.")]
+        public Color Color;
     }
 }

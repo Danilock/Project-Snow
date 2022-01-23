@@ -13,7 +13,7 @@ namespace Game.Enemy
     public class EnemyHealthBar
     {
         [Range(0, 100), Tooltip("Representation of health's value in percentage")]
-        public int Value;
+        public float Value;
 
         public Element Element;
     }

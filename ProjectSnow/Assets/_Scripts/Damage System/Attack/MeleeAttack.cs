@@ -49,6 +49,9 @@ namespace Game.DamageSystem.Attacks
             //Generates a collider looking for objects
             Collider2D[] damageableHit = Physics2D.OverlapBoxAll(_determinePoint, DamageAreaSize, 0f, Layers);
             
+            if(damageableHit.Length > 0)
+                OnHit?.Invoke();
+            
             //Going through all damageables detected
             foreach (Collider2D damageable in damageableHit)
             {

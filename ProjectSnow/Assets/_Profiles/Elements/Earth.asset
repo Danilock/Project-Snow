@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
   WeakAgainst:
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
+  Color: {r: 0.21025813, g: 1, b: 0, a: 1}

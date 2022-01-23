@@ -12,13 +12,15 @@ namespace Game.Enemy
         #region Private Fields
         [SerializeField] private List<EnemyHealthBar> _healthBars;
         [SerializeField, ReadOnly] private EnemyHealthBar _currentHealthBar;
-        private int _currentBarIndex = 0;
+        [SerializeField] private int _currentBarIndex = 0;
         private Damageable _damageable;
         #endregion
 
         #region Public Fields
 
         public EnemyHealthBar GetCurrentHealthBar => _currentHealthBar;
+
+        public List<EnemyHealthBar> GetHealthBars => _healthBars;
 
         #endregion
 
@@ -27,11 +29,11 @@ namespace Game.Enemy
         /// <summary>
         /// If the current health of the enemy is lower than the Value specified in the current bar then we return true.
         /// </summary>
-        private bool CurrentBarIsLowerThanHealthValue
+        private bool CurrentBarIsGreaterThanHealthValue
         {
             get
             {
-                if (_damageable.CurrentHealth < (float)_damageable.StartHealth * ((float)_currentHealthBar.Value / 100))
+                if (_damageable.CurrentHealth < _damageable.StartHealth * (_currentHealthBar.Value / 100))
                 {
                     return true;
                 }
@@ -63,9 +65,11 @@ namespace Game.Enemy
 
         private void OnTakeDamageListener(DamageInfo info)
         {
-            if (CurrentBarIsLowerThanHealthValue)
+            if (CurrentBarIsGreaterThanHealthValue)
             {
-                SetBar((_currentBarIndex + 1) % _healthBars.Count);
+                _currentBarIndex = (_currentBarIndex + 1) % _healthBars.Count;
+                
+                SetBar(_currentBarIndex);
             }
         }
 
