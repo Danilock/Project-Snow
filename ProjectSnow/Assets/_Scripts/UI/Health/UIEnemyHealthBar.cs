@@ -39,7 +39,6 @@ namespace Game.UI
 
             //Register to onhit event of the new enemy
             newEnemy.OnTakeDamage += UpdateCurrentBar;
-            newEnemy.OnDeath += UpdateCurrentBar;
 
             //Instantiate new bars for the new enemy
             for (int i = 0; i < newEnemy.HealthBars.Count; i++)

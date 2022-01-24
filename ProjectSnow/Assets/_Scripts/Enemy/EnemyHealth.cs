@@ -63,10 +63,12 @@ namespace Game.Enemy
                 }
                 else
                 {
+                    OnTakeDamage?.Invoke(incomingDamage);
                     SelectNextBar();
                 }
-            }else
-                OnTakeDamage?.Invoke(incomingDamage);
+            }
+            
+            OnTakeDamage?.Invoke(incomingDamage);
         }
 
         private void InitializeBars()

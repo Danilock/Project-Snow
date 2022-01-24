@@ -53,7 +53,7 @@ namespace Game.UI
             });
 
             if(_isEnabled)
-                _text.text = _healthBar.CurrentValue.ToString();
+                _text.text = _healthBar.CurrentValue > 0 ? _healthBar.CurrentValue.ToString() : "0";
         }
 
         /// <summary>
