@@ -32,7 +32,7 @@ namespace Game.UI
         public void Init(EnemyHealthBar healthBar)
         {
             _healthBar = healthBar;
-            _image.color = healthBar.Element.Color;
+            _image.color = Color.white;
         }
 
         public void UpdateBar()
@@ -48,16 +48,23 @@ namespace Game.UI
                 }
             });
 
-            _text.text = _healthBar.CurrentValue.ToString();
+            if(_isEnabled)
+                _text.text = _healthBar.CurrentValue.ToString();
         }
 
+        /// <summary>
+        /// Called once when the bar is enabled by the UIEnemyHealthBar.cs
+        /// </summary>
         public void EnableBar()
         {
             if(_isEnabled)
                 return;
-            
+
+            _text.text = _healthBar.CurrentValue.ToString();
             _text.DOFade(1f, 1f);
 
+            _image.DOColor(_healthBar.Element.Color, .5f);
+            
             _isEnabled = true;
         }
     }

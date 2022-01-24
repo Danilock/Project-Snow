@@ -26,11 +26,16 @@ namespace Game.Enemy
             }
         }
 
-        protected override void Start()
+        void Awake()
         {
             InitializeBars();
             
             SelectBar(0);
+        }
+
+        protected override void Start()
+        {
+            
         }
 
         public override void DoDamage(DamageInfo incomingDamage)
@@ -54,7 +59,6 @@ namespace Game.Enemy
                 if (CurrentHealthBar.IsLastHealthBar)
                 {
                     IsDead = true;
-                    OnTakeDamage?.Invoke(incomingDamage);
                     OnDeath?.Invoke(incomingDamage);
                 }
                 else

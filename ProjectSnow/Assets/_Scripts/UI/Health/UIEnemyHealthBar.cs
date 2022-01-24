@@ -39,13 +39,19 @@ namespace Game.UI
 
             //Register to onhit event of the new enemy
             newEnemy.OnTakeDamage += UpdateCurrentBar;
+            newEnemy.OnDeath += UpdateCurrentBar;
 
             //Instantiate new bars for the new enemy
-            foreach (EnemyHealthBar bar in newEnemy.HealthBars)
+            for (int i = 0; i < newEnemy.HealthBars.Count; i++)
             {
                 HealthBarInstance instance = Instantiate(_healthInstancePrefab, _healthContainer.transform);
-                instance.Init(bar);
+                instance.Init(newEnemy.HealthBars[i]);
                 _instantiatedBars.Add(instance);
+
+                if (i == 0)
+                {
+                    instance.EnableBar();
+                }
             }
         }
 
