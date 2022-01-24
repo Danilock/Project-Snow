@@ -16,16 +16,14 @@ namespace Game.UI
 
         private List<HealthBarInstance> _instantiatedBars = new List<HealthBarInstance>();
 
-        private EnemyHealth GetEnemyInScene => EnemyQueueManager.Instance.GetCurrentEnemy;
-
-        private EnemyElementChange GetEnemyElementChange;
+        private EnemyHealth GetCurrentEnemyHealth => EnemyQueueManager.Instance.GetCurrentEnemy;
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(.3f);
 
             EnemyQueueManager.Instance.OnChangeEnemy += SetupBars;
             
-            SetupBars(GetEnemyInScene);
+            SetupBars(GetCurrentEnemyHealth);
         }
 
         private void OnDisable()
@@ -38,15 +36,12 @@ namespace Game.UI
             //Deleting previous bars
             if (_instantiatedBars != null && _instantiatedBars.Count > 0)
                 DeletePreviousBars();
-            
-            GetEnemyElementChange = newEnemy.GetComponent<EnemyElementChange>();
-            
+
             //Register to onhit event of the new enemy
-            newEnemy.OnTakeDamage += OnTakeDamage;
-            newEnemy.OnDeath -= OnTakeDamage;
+            newEnemy.OnTakeDamage += UpdateCurrentBar;
 
             //Instantiate new bars for the new enemy
-            foreach (EnemyHealthBar bar in GetEnemyElementChange.GetHealthBars)
+            foreach (EnemyHealthBar bar in newEnemy.HealthBars)
             {
                 HealthBarInstance instance = Instantiate(_healthInstancePrefab, _healthContainer.transform);
                 instance.Init(bar);
@@ -54,12 +49,16 @@ namespace Game.UI
             }
         }
 
-        private void OnTakeDamage(DamageInfo info)
+        private void UpdateCurrentBar(DamageInfo info)
         {
             HealthBarInstance barInstance =
-                _instantiatedBars.Find(x => x.GetBar == GetEnemyElementChange.GetCurrentHealthBar);
+                _instantiatedBars.Find(x => x.GetBar == GetCurrentEnemyHealth.CurrentHealthBar);
             
-            Debug.Log(barInstance.GetBar.Element.Name);
+            if(barInstance == null)
+                return;
+
+            barInstance.EnableBar();
+            barInstance.UpdateBar();
         }
 
         private void DeletePreviousBars()

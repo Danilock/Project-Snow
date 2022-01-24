@@ -200,7 +200,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -481,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262527449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4.0557156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
-  DamageAmount: 2
+  DamageAmount: 100
   Layers:
     serializedVersion: 2
     m_Bits: 128
@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 643948633}
   - component: {fileID: 643948634}
   - component: {fileID: 643948631}
-  - component: {fileID: 643948635}
   m_Layer: 7
   m_Name: Red Enemy
   m_TagString: Untagged
@@ -912,6 +911,21 @@ MonoBehaviour:
     _element: {fileID: 0}
     IsActive: 1
   _invulnerable: 0
+  _healthBars:
+  - StartValue: 5200
+    CurrentValue: 0
+    Element: {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
+    IsLastHealthBar: 0
+  - StartValue: 7800
+    CurrentValue: 0
+    Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
+    IsLastHealthBar: 0
+  CurrentHealthBar:
+    StartValue: 0
+    CurrentValue: 0
+    Element: {fileID: 0}
+    IsLastHealthBar: 0
+  _currentIndex: 0
 --- !u!114 &643948634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,27 +944,6 @@ MonoBehaviour:
   _vibration: 25
   _target: {fileID: 1752241291}
   _canPunch: 1
---- !u!114 &643948635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643948628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e2a64348d7fbb47be806f0d26e40c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthBars:
-  - Value: 70
-    Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-  - Value: 20
-    Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
-  _currentHealthBar:
-    Value: 0
-    Element: {fileID: 0}
-  _currentBarIndex: 0
 --- !u!1 &726786264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1033,6 @@ GameObject:
   - component: {fileID: 1265525658}
   - component: {fileID: 1265525661}
   - component: {fileID: 1265525660}
-  - component: {fileID: 1265525659}
   m_Layer: 7
   m_Name: Blue Enemy
   m_TagString: Untagged
@@ -1061,36 +1053,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-  _startHealth: 100
+  _startHealth: 10
   _currentHealth: -446
   Shield:
     _shieldAmount: 0
     _element: {fileID: 0}
     IsActive: 1
   _invulnerable: 0
---- !u!114 &1265525659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265525657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e2a64348d7fbb47be806f0d26e40c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _healthBars:
-  - Value: 69
+  - StartValue: 2000
+    CurrentValue: 0
     Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-  - Value: 33
+    IsLastHealthBar: 0
+  - StartValue: 1000
+    CurrentValue: 0
     Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
-  - Value: 0
+    IsLastHealthBar: 0
+  - StartValue: 3000
+    CurrentValue: 0
     Element: {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
-  _currentHealthBar:
-    Value: 0
+    IsLastHealthBar: 0
+  CurrentHealthBar:
+    StartValue: 0
+    CurrentValue: 0
     Element: {fileID: 0}
-  _currentBarIndex: 0
+    IsLastHealthBar: 0
+  _currentIndex: 0
 --- !u!114 &1265525660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1665,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109270397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6419406, y: -2.0942848, z: -0.5460254}
+  m_LocalPosition: {x: -3.6419406, y: -3.65, z: -0.5460254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1265525664}
