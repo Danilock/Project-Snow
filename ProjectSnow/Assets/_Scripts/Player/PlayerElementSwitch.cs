@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.AbilitySystem;
 using Game.DamageSystem.Attacks;
+using UnityEngine.Events;
 
 namespace Game.Player
 {
@@ -14,6 +15,10 @@ namespace Game.Player
     {
         [Header("Elements")] 
         [SerializeField] private List<Element> _elemets;
+
+        public Element CurrentElement;
+        public List<Element> GetPlayerElements => _elemets;
+        public UnityAction<Element> OnElementChange;
 
         private Attack _attack;
         private Damageable _playerDamageable;
@@ -65,10 +70,14 @@ namespace Game.Player
         {
             if(!CanUse)
                 return;
+
+            CurrentElement = _elemets[index];
             
-            _playerDamageable.ChangeElement(_elemets[index]);
-            _attack.ChangeElement(_elemets[index]);
-            _playerDamageable.Shield.ChangeElement(_elemets[index]);
+            _playerDamageable.ChangeElement(CurrentElement);
+            _attack.ChangeElement(CurrentElement);
+            _playerDamageable.Shield.ChangeElement(CurrentElement);
+            
+            OnElementChange?.Invoke(CurrentElement);
 
             StartCoroutine(HandleCooldown_CO());
         }

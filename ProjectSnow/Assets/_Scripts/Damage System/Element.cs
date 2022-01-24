@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Game.DamageSystem
 {
@@ -16,6 +17,9 @@ namespace Game.DamageSystem
         public List<Element> StrongAgainst, WeakAgainst;
 
         [Header("Element color representation, used in UI's.")]
-        public Color Color;
+        [ColorPalette] public Color Color;
+
+        [PreviewField]
+        public Sprite Image;
     }
 }

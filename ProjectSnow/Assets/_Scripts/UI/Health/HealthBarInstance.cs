@@ -16,6 +16,7 @@ namespace Game.UI
     {
         #region Private Fields
         [SerializeField] private Image _image;
+        [SerializeField] private Image _elementIconImage;
         [SerializeField] private EnemyHealthBar _healthBar;
         [SerializeField] private Text _text;
 
@@ -44,7 +45,10 @@ namespace Game.UI
                 if (_healthBar.CurrentValue <= 0)
                 {
                     DOTween.To(() => _image.fillAmount, x => _image.fillAmount = x, 0f, .1f);
+                    
                     _text.DOFade(0f, .3f);
+                    _elementIconImage.DOFade(0f, .3f);
+
                 }
             });
 
@@ -64,6 +68,9 @@ namespace Game.UI
             _text.DOFade(1f, 1f);
 
             _image.DOColor(_healthBar.Element.Color, .5f);
+
+            _elementIconImage.color = _healthBar.Element.Color;
+            _elementIconImage.sprite = _healthBar.Element.Image;
             
             _isEnabled = true;
         }
