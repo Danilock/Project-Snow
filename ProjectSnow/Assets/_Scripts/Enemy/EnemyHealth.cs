@@ -91,6 +91,8 @@ namespace Game.Enemy
         public void SelectBar(int index)
         {
             CurrentHealthBar = _healthBars[index];
+            
+            ChangeElement(CurrentHealthBar.Element);
         }
     }
 }
