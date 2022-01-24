@@ -6,22 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/HealthBar Instance.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/HealthBar Instance.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Profiles/Elements/Earth.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Profiles/Elements/Earth.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Profiles/Elements/Fire.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Profiles/Elements/Fire.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Profiles/Elements/Water.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Profiles/Elements/Water.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerElementSwitch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerElementSwitch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/UIElement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/UIElement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Sprites/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Sprites/UI/HealthBar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Sprites/UI/HealthBar.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +107,7 @@
       <workItem from="1642784723335" duration="11778000" />
       <workItem from="1642806620755" duration="12207000" />
       <workItem from="1642864127655" duration="20467000" />
-      <workItem from="1642955466038" duration="21703000" />
+      <workItem from="1642955466038" duration="22662000" />
     </task>
     <servers />
   </component>

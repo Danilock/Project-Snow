@@ -38,6 +38,12 @@ namespace Game.UI
                 
                 _elementsInstantiated.Add(elementInstance);
             }
+            
+            _selector.transform.DOMove(_elementsInstantiated[0].transform.position, .4f).OnComplete(() =>
+            {
+                if (_selector.transform.position != _elementsInstantiated[0].transform.position)
+                    _selector.transform.DOMove(_elementsInstantiated[0].transform.position, .4f);
+            });
         }
 
         private void OnElementChange(Element newElement)
