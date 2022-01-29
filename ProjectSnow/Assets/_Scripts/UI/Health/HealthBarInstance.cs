@@ -24,6 +24,8 @@ namespace Game.UI
         [Header("Pool")] [SerializeField] private string _pool;
         
         private bool _isEnabled = false;
+
+        private RectTransform _rect;
         #endregion
 
         #region Public Fields
@@ -37,6 +39,7 @@ namespace Game.UI
         {
             _healthBar = healthBar;
             _image.color = Color.white;
+            _rect = GetComponent<RectTransform>();
         }
 
         public void UpdateBar()
@@ -65,25 +68,22 @@ namespace Game.UI
         {
             DamageHitBarUI bar = ObjectPooler.Instance.GetObjectFromPool(_pool).GetComponent<DamageHitBarUI>();
 
-            float size = CalculateBarEffectSize(targetValue, currentImageFillAmount);
-            float scale = CalculateBarEffectScale(targetValue, currentImageFillAmount);
-            
-            bar.Init(size, scale, transform);
+            float right = CalculateRectRight(targetValue, currentImageFillAmount);
+            float left = CalculateRectLeft(targetValue, currentImageFillAmount);
+            Debug.Log($"{left} --- {right}");
+            bar.Init(left, right, transform, _healthBar.Element);
         }
 
-        private float CalculateBarEffectSize(float targetValue, float currentImageFillAmount)
+        private float CalculateRectRight(float targetValue, float currentImageFillAmount)
         {
-            float x = 320f*targetValue;
-            float y = (1 - currentImageFillAmount) * 320;
-
-            float target = x - y;
+            float target = (1 - currentImageFillAmount) * _rect.GetRight();
 
             return target;
         }
 
-        private float CalculateBarEffectScale(float targetValue, float currentImageFillAmount)
+        private float CalculateRectLeft(float targetValue, float currentImageFillAmount)
         {
-            return currentImageFillAmount - targetValue;
+            return targetValue * _rect.GetRight();
         }
 
         /// <summary>

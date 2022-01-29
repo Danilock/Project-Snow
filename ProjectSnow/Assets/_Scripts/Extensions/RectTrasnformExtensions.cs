@@ -22,6 +22,11 @@ public static class RectTransformExtensions
         rt.offsetMin = new Vector2(rt.offsetMin.x, bottom);
     }
 
+    public static float GetRight(this RectTransform rt)
+    {
+        return rt.sizeDelta.x;
+    }
+
     public static void Reset(this RectTransform rt)
     {
         SetLeft(rt, 0f);
