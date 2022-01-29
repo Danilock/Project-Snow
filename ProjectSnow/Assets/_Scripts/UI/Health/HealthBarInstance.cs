@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Game.DamageSystem;
 using Game.Enemy;
+using ObjectPooling;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +19,10 @@ namespace Game.UI
         [SerializeField] private Image _elementIconImage;
         [SerializeField] private EnemyHealthBar _healthBar;
         [SerializeField] private Text _text;
+        [Header("Scale Sizer When Selected")] private float _scale = .3f;
 
+        [Header("Pool")] [SerializeField] private string _pool;
+        
         private bool _isEnabled = false;
         #endregion
 
@@ -40,6 +43,8 @@ namespace Game.UI
         {
             float targetValue = _healthBar.CurrentValue / _healthBar.StartValue;
 
+            GenerateDamageBar(targetValue, _image.fillAmount);
+            
             DOTween.To(() => _image.fillAmount, x => _image.fillAmount = x, targetValue, .3f).OnComplete(() =>
             {
                 if (_healthBar.CurrentValue <= 0)
@@ -51,9 +56,34 @@ namespace Game.UI
 
                 }
             });
-
+            
             if(_isEnabled)
                 _text.text = _healthBar.CurrentValue > 0 ? _healthBar.CurrentValue.ToString() : "0";
+        }
+
+        private void GenerateDamageBar(float targetValue, float currentImageFillAmount)
+        {
+            DamageHitBarUI bar = ObjectPooler.Instance.GetObjectFromPool(_pool).GetComponent<DamageHitBarUI>();
+
+            float size = CalculateBarEffectSize(targetValue, currentImageFillAmount);
+            float scale = CalculateBarEffectScale(targetValue, currentImageFillAmount);
+            
+            bar.Init(size, scale, transform);
+        }
+
+        private float CalculateBarEffectSize(float targetValue, float currentImageFillAmount)
+        {
+            float x = 320f*targetValue;
+            float y = (1 - currentImageFillAmount) * 320;
+
+            float target = x - y;
+
+            return target;
+        }
+
+        private float CalculateBarEffectScale(float targetValue, float currentImageFillAmount)
+        {
+            return currentImageFillAmount - targetValue;
         }
 
         /// <summary>
@@ -71,8 +101,15 @@ namespace Game.UI
 
             _elementIconImage.color = _healthBar.Element.Color;
             _elementIconImage.sprite = _healthBar.Element.Image;
+
+            IncreaseBarSize();
             
             _isEnabled = true;
+        }
+
+        private void IncreaseBarSize()
+        {
+            _image.transform.DOScaleY(transform.localScale.y + _scale, .5f);
         }
     }
 }
