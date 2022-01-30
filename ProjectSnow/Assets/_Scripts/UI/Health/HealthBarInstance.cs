@@ -68,22 +68,22 @@ namespace Game.UI
         {
             DamageHitBarUI bar = ObjectPooler.Instance.GetObjectFromPool(_pool).GetComponent<DamageHitBarUI>();
 
-            float right = CalculateRectRight(targetValue, currentImageFillAmount);
-            float left = CalculateRectLeft(targetValue, currentImageFillAmount);
-            Debug.Log($"{left} --- {right}");
+            float right = CalculateRectRight(currentImageFillAmount);
+            float left = CalculateRectLeft(targetValue);
+            
             bar.Init(left, right, transform, _healthBar.Element);
         }
 
-        private float CalculateRectRight(float targetValue, float currentImageFillAmount)
+        private float CalculateRectRight(float currentImageFillAmount)
         {
-            float target = (1 - currentImageFillAmount) * _rect.GetRight();
+            float target = (1 - currentImageFillAmount) * _rect.GetWidth();
 
             return target;
         }
 
-        private float CalculateRectLeft(float targetValue, float currentImageFillAmount)
+        private float CalculateRectLeft(float targetValue)
         {
-            return targetValue * _rect.GetRight();
+            return targetValue * _rect.GetWidth();
         }
 
         /// <summary>

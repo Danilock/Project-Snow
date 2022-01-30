@@ -143,6 +143,9 @@ namespace Game.DamageSystem
             yield return new WaitForSeconds(seconds);
             Invulnerable = false;
         }
+
+        public virtual void SetInvulnerable(bool value) => Invulnerable = value;
+
         #endregion
 
         #endregion

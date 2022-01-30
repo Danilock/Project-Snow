@@ -7,8 +7,10 @@
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/RectTrasnformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/RectTrasnformExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Damage/DamageHitBarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Damage/DamageHitBarUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +112,7 @@
       <workItem from="1642955466038" duration="25181000" />
       <workItem from="1643310020639" duration="1571000" />
       <workItem from="1643428278111" duration="6965000" />
-      <workItem from="1643473113178" duration="1641000" />
+      <workItem from="1643473113178" duration="9693000" />
     </task>
     <servers />
   </component>

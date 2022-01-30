@@ -22,7 +22,7 @@ public static class RectTransformExtensions
         rt.offsetMin = new Vector2(rt.offsetMin.x, bottom);
     }
 
-    public static float GetRight(this RectTransform rt)
+    public static float GetWidth(this RectTransform rt)
     {
         return rt.sizeDelta.x;
     }

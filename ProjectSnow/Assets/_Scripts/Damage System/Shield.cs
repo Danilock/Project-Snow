@@ -12,6 +12,7 @@ namespace Game.DamageSystem
         #region Private Fields
         [SerializeField] private float _shieldAmount;
         [SerializeField] private Element _element;
+        [SerializeField, Header("Defines if this shield can be damaged")] private bool _canBreak = true;
         public Element Element => _element;
         #endregion
 
@@ -37,6 +38,9 @@ namespace Game.DamageSystem
         #region Methods
         public void DamageShield(DamageInfo info)
         {
+            if(!_canBreak)
+                return;
+
             _shieldAmount -= DamageCalculations.CalculateDamageBasedInElements
                 (
                     info.Damage, 
