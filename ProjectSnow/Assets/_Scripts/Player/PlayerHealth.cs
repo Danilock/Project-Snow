@@ -7,14 +7,26 @@ namespace Game.Player
 {
     public class PlayerHealth : Damageable
     {
+        private PlayerShieldUsage _shieldUsage;
+
+        protected override void Start()
+        {
+            base.Start();
+
+            _shieldUsage = GetComponent<PlayerShieldUsage>();
+        }
+
         public override void DoDamage(DamageInfo incomingDamage)
         {
             if(Invulnerable)
                 return;
             
-            if (Shield.ShieldAmount > 0 && Shield.IsActive)
+            if ((Shield.Element.IsCounterOf(incomingDamage.Transmitter.Element)) && Shield.IsActive)
             {
-                Shield.DamageShield(incomingDamage);
+                incomingDamage.Transmitter.DoDamage(
+                    new DamageInfo(
+                    this, _shieldUsage.ShieldDamageOnBlock, true)
+                    );
                 return;
             }
 

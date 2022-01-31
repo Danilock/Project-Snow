@@ -21,5 +21,18 @@ namespace Game.DamageSystem
 
         [PreviewField]
         public Sprite Image;
+
+        /// <summary>
+        /// Checks if this element is counter of the one specified.
+        /// </summary>
+        /// <param name="counterOf"></param>
+        /// <returns></returns>
+        public bool IsCounterOf(Element counterOf)
+        {
+            if (StrongAgainst.Contains(counterOf))
+                return true;
+            else
+                return false;
+        }
     }
 }

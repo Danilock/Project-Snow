@@ -40,7 +40,7 @@ namespace Game.Enemy
 
         public override void DoDamage(DamageInfo incomingDamage)
         {
-            if (Invulnerable || IsDead)
+            if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)
                 return;
 
             float endDamage = DamageCalculations.CalculateDamageBasedInElements

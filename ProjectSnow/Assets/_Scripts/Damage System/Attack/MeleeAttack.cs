@@ -60,7 +60,7 @@ namespace Game.DamageSystem.Attacks
                 if(dmg == null)
                     return;
                 
-                dmg.DoDamage(new DamageInfo(Owner, DamageAmount));
+                dmg.DoDamage(new DamageInfo(Owner, DamageAmount, IgnoreTargetInvulnerability));
             }
         }
 

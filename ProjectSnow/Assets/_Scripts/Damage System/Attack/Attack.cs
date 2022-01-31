@@ -26,6 +26,8 @@ namespace Game.DamageSystem.Attacks
         [SerializeField] protected Element AttackElement;
         public Element Element => AttackElement;
 
+        public bool IgnoreTargetInvulnerability = false;
+
         #endregion
         
         #region Damage Settings

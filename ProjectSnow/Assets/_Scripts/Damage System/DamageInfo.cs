@@ -14,13 +14,15 @@ namespace Game.DamageSystem
         /// </summary>
         public Damageable Transmitter;
         public float Damage;
+        public bool IgnoreInvulnerability = false;
 
         public DamageInfo(){ }
 
-        public DamageInfo(Damageable transmitter, float damage)
+        public DamageInfo(Damageable transmitter, float damage, bool ignoreInvulnerability)
         {
             this.Transmitter = transmitter;
             this.Damage = damage;
+            this.IgnoreInvulnerability = ignoreInvulnerability;
         }
     }
 }
