@@ -21,6 +21,7 @@ namespace Game.Player
             if(Invulnerable)
                 return;
             
+            //If the player receives damage when using a counter shield, then we damage the transmitter.
             if ((Shield.Element.IsCounterOf(incomingDamage.Transmitter.Element)) && Shield.IsActive)
             {
                 incomingDamage.Transmitter.DoDamage(
