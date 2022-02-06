@@ -687,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
+  IgnoreTargetInvulnerability: 0
   DamageAmount: 100
   Layers:
     serializedVersion: 2
@@ -714,6 +715,7 @@ MonoBehaviour:
   EnergySource: {fileID: 262527460}
   RequiredEnergy: 7
   _damageable: {fileID: 262527456}
+  _shieldDamageOnBlock: 20
 --- !u!114 &262527460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765482b5ccf597f49bd31b25e239f759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegenerationRate: 0.2
+  RegenerationRate: 0.01
   Seconds: 1
   CanRegenerate: 1
   IsRegenerating: 0
@@ -1656,6 +1658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
+  IgnoreTargetInvulnerability: 0
   DamageAmount: 5
   Layers:
     serializedVersion: 2
@@ -2245,6 +2248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
+  IgnoreTargetInvulnerability: 0
   DamageAmount: 5
   Layers:
     serializedVersion: 2
