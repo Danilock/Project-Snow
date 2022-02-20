@@ -45,6 +45,8 @@ namespace Game.Player
             PlayerInput.Instance.Actions.Player.SelectThirdElement.performed += SelectThirdElementOnperformed; 
             
             SelectPlayerElementByIndex(0);
+            
+            _playerDamageable.Shield.ChangeElement(_elemets[0]);
         }
 
         private void SelectFirstElementOnperformed(InputAction.CallbackContext obj)
@@ -75,7 +77,21 @@ namespace Game.Player
             
             _playerDamageable.ChangeElement(CurrentElement);
             _attack.ChangeElement(CurrentElement);
-            _playerDamageable.Shield.ChangeElement(CurrentElement);
+            
+            OnElementChange?.Invoke(CurrentElement);
+
+            StartCoroutine(HandleCooldown_CO());
+        }
+
+        public void SelectPlayerElement(Element element)
+        {
+            if (!CanUse)
+                return;
+
+            CurrentElement = element;
+            
+            _playerDamageable.ChangeElement(element);
+            _attack.ChangeElement(element);
             
             OnElementChange?.Invoke(CurrentElement);
 

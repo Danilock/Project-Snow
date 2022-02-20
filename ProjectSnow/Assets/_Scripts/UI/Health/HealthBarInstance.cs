@@ -99,7 +99,6 @@ namespace Game.UI
 
             _image.DOColor(_healthBar.Element.Color, .5f);
 
-            _elementIconImage.color = _healthBar.Element.Color;
             _elementIconImage.sprite = _healthBar.Element.Image;
 
             IncreaseBarSize();

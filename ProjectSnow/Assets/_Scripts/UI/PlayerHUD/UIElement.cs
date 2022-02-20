@@ -19,7 +19,6 @@ namespace Game.UI
         {
             _currentElement = element;
 
-            _image.color = _currentElement.Color;
             _image.sprite = _currentElement.Image;
         }
     }
