@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/MeleeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Attack/MeleeAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Shield.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Button/BaseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Button/BaseButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerAttackButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerAttackButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerElementButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/PlayerHUD/UIPlayerElementButton.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +118,7 @@
       <workItem from="1645381823085" duration="2660000" />
       <workItem from="1645548246743" duration="1796000" />
       <workItem from="1645769371574" duration="936000" />
-      <workItem from="1645770786029" duration="3746000" />
+      <workItem from="1645770786029" duration="5244000" />
     </task>
     <servers />
   </component>

@@ -25,7 +25,7 @@ namespace Game.Player
             if (Shield.IsActive)
             {
                 //If the player receives damage when using a counter shield, then we damage the transmitter.
-                if ((Shield.Element.IsCounterOf(incomingDamage.Transmitter.Element)))
+                if ((Shield.Element.IsCounterOf(incomingDamage.Element)))
                 {
                     Shield.IsActive = false;
                     
@@ -36,13 +36,13 @@ namespace Game.Player
                     return;
                 }
 
-                if (Shield.Element == incomingDamage.Transmitter.Element)
+                if (Shield.Element == incomingDamage.Element)
                 {
                     Shield.IsActive = false;
                     return;
                 }
 
-                if (Shield.Element.IsWeakerThan(incomingDamage.Transmitter.Element))
+                if (Shield.Element.IsWeakerThan(incomingDamage.Element))
                 {
                     Shield.IsActive = false;
                     KillPlayer(incomingDamage);

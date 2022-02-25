@@ -118,7 +118,7 @@ namespace Game.DamageSystem
             (
                 incomingDamage.Damage, 
                 _element, 
-                incomingDamage.Transmitter.Element
+                incomingDamage.Element
             );
         }
 
