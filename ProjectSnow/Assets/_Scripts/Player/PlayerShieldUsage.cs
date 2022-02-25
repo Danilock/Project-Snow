@@ -23,17 +23,11 @@ namespace Game.Player
                 _damageable = GetComponent<Damageable>();
             
             PlayerInput.Instance.Actions.Player.Shield.performed += ShieldOnperformed;
-            PlayerInput.Instance.Actions.Player.Shield.canceled += ShieldOncanceled;
         }
 
         private void ShieldOnperformed(InputAction.CallbackContext obj)
         {
             this.TriggerAbility();
-        }
-
-        private void ShieldOncanceled(InputAction.CallbackContext obj)
-        {
-            _damageable.Shield.IsActive = false;
         }
 
         public override void TriggerAbility()

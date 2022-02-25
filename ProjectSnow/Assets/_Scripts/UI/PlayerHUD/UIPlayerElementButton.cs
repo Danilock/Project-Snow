@@ -15,10 +15,21 @@ namespace Game.UI
     public class UIPlayerElementButton : BaseButton
     {
         [SerializeField] private Element _elemetToChoose;
+        
+        private enum Target
+        {
+            Attack,
+            Shield
+        }
+
+        [SerializeField] private Target _target = Target.Attack;
 
         public void PickElement()
         {
-            LevelManager.Instance.GetPlayer.GetPlayerElementSwitch.SelectPlayerElement(_elemetToChoose);
+            if(_target == Target.Attack)
+                LevelManager.Instance.GetPlayer.GetPlayerElementSwitch.SelectPlayerElement(_elemetToChoose);
+            else
+                LevelManager.Instance.GetPlayer.GetPlayerHealth.Shield.ChangeElement(_elemetToChoose);
         }
     }
 }

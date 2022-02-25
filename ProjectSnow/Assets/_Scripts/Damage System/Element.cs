@@ -34,5 +34,15 @@ namespace Game.DamageSystem
             else
                 return false;
         }
+
+        public bool IsWeakerThan(Element stronger)
+        {
+            if (WeakAgainst.Contains(stronger))
+                return true;
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Game.UI;
-using Managers;
 using UnityEngine;
+using Managers;
 using UnityEngine.UI;
 
 namespace Game.UI
 {
-    public class UIPlayerAttackButton : BaseButton
+    public class UIPlayerShieldButton : BaseButton
     {
         [SerializeField] private Button _button;
 
@@ -25,17 +23,17 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(DoPlayerAttack);
+            _button.onClick.AddListener(UsePlayerShield);
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(DoPlayerAttack);
+            _button.onClick.RemoveListener(UsePlayerShield);
         }
 
-        private void DoPlayerAttack()
+        private void UsePlayerShield()
         {
-            LevelManager.Instance.GetPlayer.GetPlayerAttack.TriggerAbility();
+            LevelManager.Instance.GetPlayer.GetPlayerShieldUsage.TriggerAbility();
         }
     }
 }

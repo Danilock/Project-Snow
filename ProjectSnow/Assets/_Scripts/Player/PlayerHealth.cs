@@ -20,32 +20,51 @@ namespace Game.Player
         {
             if(Invulnerable)
                 return;
-            
-            //If the player receives damage when using a counter shield, then we damage the transmitter.
-            if ((Shield.Element.IsCounterOf(incomingDamage.Transmitter.Element)) && Shield.IsActive)
+
+
+            if (Shield.IsActive)
             {
-                incomingDamage.Transmitter.DoDamage(
-                    new DamageInfo(
-                    this, _shieldUsage.ShieldDamageOnBlock, true)
+                //If the player receives damage when using a counter shield, then we damage the transmitter.
+                if ((Shield.Element.IsCounterOf(incomingDamage.Transmitter.Element)))
+                {
+                    Shield.IsActive = false;
+                    
+                    incomingDamage.Transmitter.DoDamage(
+                        new DamageInfo(
+                            this, _shieldUsage.ShieldDamageOnBlock, true)
                     );
-                return;
+                    return;
+                }
+
+                if (Shield.Element == incomingDamage.Transmitter.Element)
+                {
+                    Shield.IsActive = false;
+                    return;
+                }
+
+                if (Shield.Element.IsWeakerThan(incomingDamage.Transmitter.Element))
+                {
+                    Shield.IsActive = false;
+                    KillPlayer(incomingDamage);
+                    return;
+                }
             }
 
-            _currentHealth -= DamageCalculations.CalculateDamageBasedInElements
-            (
-                incomingDamage.Damage, 
-                _element, 
-                incomingDamage.Transmitter.Element
-            );
+            _currentHealth -= EndDamage(incomingDamage);
 
             if (_currentHealth <= 0)
             {
-                OnDeath?.Invoke(incomingDamage);
-                IsDead = true;
-                _currentHealth = 0;
+                KillPlayer(incomingDamage);
             }
             else
                 OnTakeDamage?.Invoke(incomingDamage);
+        }
+
+        public void KillPlayer(DamageInfo incomingDamage)
+        {
+            OnDeath?.Invoke(incomingDamage);
+            IsDead = true;
+            _currentHealth = 0;
         }
     }
 }

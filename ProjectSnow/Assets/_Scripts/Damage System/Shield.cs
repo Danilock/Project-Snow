@@ -14,6 +14,7 @@ namespace Game.DamageSystem
         [SerializeField] private Element _element;
         [SerializeField, Header("Defines if this shield can be damaged")] private bool _canBreak = true;
         public Element Element => _element;
+        public UnityAction OnTakeDamage;
         #endregion
 
         #region Constructors
@@ -47,6 +48,8 @@ namespace Game.DamageSystem
                     _element, 
                     info.Transmitter.Element
                 );
+            
+            OnTakeDamage?.Invoke();
         }
 
         /// <summary>

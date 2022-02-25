@@ -96,12 +96,7 @@ namespace Game.DamageSystem
                 return;
             }
 
-            float endDamage = DamageCalculations.CalculateDamageBasedInElements
-            (
-                incomingDamage.Damage, 
-                _element, 
-                incomingDamage.Transmitter.Element
-            );
+            float endDamage = EndDamage(incomingDamage);
 
             _currentHealth -= endDamage;
 
@@ -115,6 +110,16 @@ namespace Game.DamageSystem
             }
             else
                 OnTakeDamage?.Invoke(incomingDamage);
+        }
+
+        protected float EndDamage(DamageInfo incomingDamage)
+        {
+            return DamageCalculations.CalculateDamageBasedInElements
+            (
+                incomingDamage.Damage, 
+                _element, 
+                incomingDamage.Transmitter.Element
+            );
         }
 
         /// <summary>
