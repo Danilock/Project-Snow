@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using Game.DamageSystem;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 namespace Game.Enemy
 {
@@ -15,6 +16,8 @@ namespace Game.Enemy
         public List<EnemyHealthBar> HealthBars => _healthBars;
 
         public EnemyHealthBar CurrentHealthBar;
+
+        public UnityAction<EnemyHealthBar> OnChangeBar;
 
         [SerializeField] private int _currentIndex = 0;
 
@@ -32,12 +35,6 @@ namespace Game.Enemy
             
             SelectBar(0);
         }
-
-        protected override void Start()
-        {
-            
-        }
-
         public override void DoDamage(DamageInfo incomingDamage)
         {
             if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)
@@ -95,6 +92,8 @@ namespace Game.Enemy
             CurrentHealthBar = _healthBars[index];
             
             ChangeElement(CurrentHealthBar.Element);
+            
+            OnChangeBar?.Invoke(CurrentHealthBar);
         }
     }
 }

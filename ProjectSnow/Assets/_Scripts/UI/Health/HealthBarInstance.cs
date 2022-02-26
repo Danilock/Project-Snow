@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Game.Enemy;
 using ObjectPooling;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,8 +17,7 @@ namespace Game.UI
     {
         #region Private Fields
         [SerializeField] private Image _image;
-        [SerializeField] private Image _elementIconImage;
-        [SerializeField] private EnemyHealthBar _healthBar;
+        [SerializeField, ReadOnly] private EnemyHealthBar _healthBar;
         [SerializeField] private Text _text;
         [Header("Scale Sizer When Selected")] private float _scale = .3f;
 
@@ -55,7 +55,6 @@ namespace Game.UI
                     DOTween.To(() => _image.fillAmount, x => _image.fillAmount = x, 0f, .1f);
                     
                     _text.DOFade(0f, .3f);
-                    _elementIconImage.DOFade(0f, .3f);
 
                 }
             });
@@ -98,8 +97,6 @@ namespace Game.UI
             _text.DOFade(1f, 1f);
 
             _image.DOColor(_healthBar.Element.Color, .5f);
-
-            _elementIconImage.sprite = _healthBar.Element.Image;
 
             IncreaseBarSize();
             

@@ -7,6 +7,7 @@ using Game.DamageSystem.Attacks;
 using Game.Enemy;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -35,9 +36,11 @@ public class EnemyAttack : BaseAbility
     {
         get
         {
-            return _possibleElements[Random.Range(0, _possibleElements.Count - 1)];
+            return _possibleElements[Random.Range(0, _possibleElements.Count)];
         }
     }
+
+    private Element _currentRandomElement;
 
     #endregion
     #region Animator
@@ -51,6 +54,13 @@ public class EnemyAttack : BaseAbility
 
     #endregion
 
+    #region Events
+
+    public UnityAction OnAttack;
+    public UnityAction<Element> OnDecideElement;
+
+    #endregion
+    
     #region Health
 
     private EnemyHealth _health;
@@ -87,12 +97,16 @@ public class EnemyAttack : BaseAbility
         CanUse = false;
 
         _secondsBeforeChargeAttack = Random.Range(_min, _max);
+
+        _currentRandomElement = PickRandomElement;
         
-        _attack.ChangeElement(PickRandomElement);
+        _attack.ChangeElement(_currentRandomElement);
         
         yield return new WaitForSeconds(_secondsBeforeChargeAttack);
 
         _chargeAttackCoroutine = ChargeAttack_CO();
+        
+        OnDecideElement?.Invoke(_currentRandomElement);
         
         StartCoroutine(_chargeAttackCoroutine);
     }
@@ -102,6 +116,8 @@ public class EnemyAttack : BaseAbility
         HandleCooldownCoroutine = HandleCooldown_CO();
         
         _attack.DoAttack();
+        
+        OnAttack?.Invoke();
 
         StartCoroutine(HandleCooldownCoroutine);
     }

@@ -5,7 +5,10 @@ using Game.DamageSystem;
 using Game.Enemy;
 using Managers;
 using System.Linq;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -13,6 +16,15 @@ namespace Game.UI
     {
         [SerializeField] private GameObject _healthContainer;
         [SerializeField] private HealthBarInstance _healthInstancePrefab;
+        
+        [SerializeField] private Image _currentElementImage;
+
+        [FoldoutGroup("Tweening")] [SerializeField]
+        private Vector3 _punchCurrentElementImage;
+
+        [FoldoutGroup("Tweening"), SerializeField] private float _duration = 1f;
+        [FoldoutGroup("Tweening"), SerializeField] private int _vibration = 10;
+        [FoldoutGroup("Tweening"), SerializeField] private float _elasticity = 0f;
 
         private List<HealthBarInstance> _instantiatedBars = new List<HealthBarInstance>();
 
@@ -39,6 +51,7 @@ namespace Game.UI
 
             //Register to onhit event of the new enemy
             newEnemy.OnTakeDamage += UpdateCurrentBar;
+            newEnemy.OnChangeBar += SetupBarElementImage;
 
             //Instantiate new bars for the new enemy
             for (int i = 0; i < newEnemy.HealthBars.Count; i++)
@@ -50,8 +63,16 @@ namespace Game.UI
                 if (i == 0)
                 {
                     instance.EnableBar();
+                    SetupBarElementImage(newEnemy.CurrentHealthBar);
                 }
             }
+        }
+
+        private void SetupBarElementImage(EnemyHealthBar newBar)
+        {
+            _currentElementImage.sprite = newBar.Element.Image;
+
+            _currentElementImage.transform.DOPunchScale(_punchCurrentElementImage, _duration, _vibration, _elasticity);
         }
 
         private void UpdateCurrentBar(DamageInfo info)
