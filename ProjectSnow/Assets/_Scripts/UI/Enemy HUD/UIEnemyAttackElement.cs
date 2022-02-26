@@ -23,6 +23,8 @@ namespace Game.UI
 
         [SerializeField, FoldoutGroup("Settings")] private Sprite[] _allPossibleElements;
 
+        private Image _image;
+
         #region Tweening
 
         [SerializeField, FoldoutGroup("Tweening")]
@@ -43,11 +45,11 @@ namespace Game.UI
 
         private EnemyAttack _attack;
 
-        private IEnumerator _enumerator;
-
         private void Start()
         {
             EnemyQueueManager.Instance.OnChangeEnemy += OnChangeEnemy;
+
+            _image = GetComponent<Image>();
         }
 
         private void OnDisable()
@@ -63,38 +65,22 @@ namespace Game.UI
                 return;
             
             _attack.OnDecideElement += OnDecideElement;
-            _attack.OnAttack += StartTicking;
-
-            enemy.OnDeath += arg0 => { StopCoroutine(_enumerator); };
-            
-            StartTicking();
-        }
-
-        private void StartTicking()
-        {
-            _enumerator = ChangeIcon_CO();
-            StartCoroutine(_enumerator);
+            _attack.OnAttack += () =>
+            {
+                _currentElementImage.DOFade(0f, .3f);
+                _image.enabled = true;
+            };
         }
 
         private void OnDecideElement(Element element)
         {
-            StopCoroutine(_enumerator);
-
             _currentElementImage.sprite = element.Image;
 
-            transform.DOPunchScale(_scale, _duration, _vibration, _elasticity);
-        }
+            _currentElementImage.DOFade(1f, .3f);
 
-        private IEnumerator ChangeIcon_CO()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_secondsBetweenIcons);
+            _image.enabled = false;
 
-                _currentElementImage.sprite = _allPossibleElements[_currentIndex];
-
-                _currentIndex = (_currentIndex + 1) % _allPossibleElements.Length;
-            }
+            _currentElementImage.transform.DOPunchScale(_scale, _duration, _vibration, _elasticity);
         }
     }
 }
