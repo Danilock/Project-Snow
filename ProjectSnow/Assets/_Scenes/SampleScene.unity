@@ -1593,8 +1593,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 897fb1eb55a01ae4cb907ac275454fe0, type: 3}
   - {fileID: 21300000, guid: ffb38dbd44ca7ba4aa59dcb3a698a933, type: 3}
   - {fileID: 21300000, guid: 869e282dd220dc74a8b42920fc565ec0, type: 3}
-  _currentIndex: 0
-  _canTick: 1
+  _scale: {x: 0.5, y: 0.5, z: 0}
+  _duration: 0.5
+  _vibration: 10
+  _elasticity: 1
 --- !u!1 &639773455
 GameObject:
   m_ObjectHideFlags: 0

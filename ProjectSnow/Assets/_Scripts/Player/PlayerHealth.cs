@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.DamageSystem;
+using Game.Enemy;
 using UnityEngine;
 
 namespace Game.Player
@@ -28,10 +29,15 @@ namespace Game.Player
                 if ((Shield.Element.IsCounterOf(incomingDamage.Element)))
                 {
                     Shield.IsActive = false;
+
+                    EnemyHealthBar bar = incomingDamage.Transmitter.GetComponent<EnemyHealth>().CurrentHealthBar;
+                    
+                    float damageAmount = bar.StartValue *
+                                         (_shieldUsage.ShieldDamageOnBlock / 100);
                     
                     incomingDamage.Transmitter.DoDamage(
                         new DamageInfo(
-                            this, _shieldUsage.ShieldDamageOnBlock, true)
+                            this, damageAmount, true)
                     );
                     return;
                 }

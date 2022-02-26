@@ -13,7 +13,7 @@ namespace Game.Player
     public class PlayerShieldUsage : BaseAbility
     {
         [SerializeField] private Damageable _damageable;
-        [SerializeField] private float _shieldDamageOnBlock = 20f;
+        [SerializeField, Range(0, 100)] private float _shieldDamageOnBlock = 20f;
 
         public float ShieldDamageOnBlock => _shieldDamageOnBlock;
 
