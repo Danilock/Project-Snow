@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using Game.DamageSystem;
 using Game.Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Player
 {
     public class PlayerHealth : Damageable
     {
+        [SerializeField] private UnityEvent _onShieldBlock;
+        
         private PlayerShieldUsage _shieldUsage;
 
         protected override void Start()
@@ -39,6 +42,8 @@ namespace Game.Player
                         new DamageInfo(
                             this, damageAmount, true)
                     );
+                    
+                    _onShieldBlock?.Invoke();
                     return;
                 }
 

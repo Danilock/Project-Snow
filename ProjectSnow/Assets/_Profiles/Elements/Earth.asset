@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
   WeakAgainst:
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
-  Color: {r: 0.753, g: 0.714, b: 0.667, a: 1}
+  Color: {r: 0.6784314, g: 0.6117647, b: 0.5411765, a: 1}
   Image: {fileID: 21300000, guid: 897fb1eb55a01ae4cb907ac275454fe0, type: 3}
   HealthBarInstanceImage: {fileID: 21300000, guid: 725dc866e72084547bbd5c1ad44eff56, type: 3}

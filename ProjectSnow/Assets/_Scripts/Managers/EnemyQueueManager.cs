@@ -27,6 +27,10 @@ namespace Managers
 
         public EnemyHealth GetCurrentEnemy => _currentEnemy;
 
+        private EnemyAttack _enemyAttack;
+
+        public EnemyAttack GetEnemyAttack => _enemyAttack;
+
         #endregion
         
         private void Start()
@@ -81,6 +85,8 @@ namespace Managers
                     _currentEnemy = _enemies[_currentEnemyIndex];
 
                     _currentEnemy.gameObject.SetActive(true);
+
+                    _enemyAttack = _currentEnemy.GetComponent<EnemyAttack>();
                     
                     enemyRenderer = _currentEnemy.GetComponentInChildren<SpriteRenderer>();
             
