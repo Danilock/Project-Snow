@@ -16,11 +16,14 @@ namespace Game.DamageSystem
 
         public List<Element> StrongAgainst, WeakAgainst;
 
-        [Header("Element color representation, used in UI's.")]
+        [Header("Element color representation, used in UI's."), FoldoutGroup("Art")]
         [ColorPalette] public Color Color;
 
-        [PreviewField]
+        [PreviewField, FoldoutGroup("Art")]
         public Sprite Image;
+
+        [PreviewField, FoldoutGroup("Art")] 
+        public Sprite HealthBarInstanceImage;
 
         /// <summary>
         /// Checks if this element is counter of the one specified.

@@ -96,7 +96,7 @@ namespace Game.UI
             _text.text = _healthBar.CurrentValue.ToString();
             _text.DOFade(1f, 1f);
 
-            _image.DOColor(_healthBar.Element.Color, .5f);
+            _image.sprite = _healthBar.Element.HealthBarInstanceImage;
 
             IncreaseBarSize();
             

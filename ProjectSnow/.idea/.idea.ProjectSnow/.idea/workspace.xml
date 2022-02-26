@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerShieldUsage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Enemy HUD/UIEnemyAttackElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Enemy HUD/UIEnemyAttackElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/Element.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Health/HealthBarInstance.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,9 @@
       <workItem from="1645548246743" duration="1796000" />
       <workItem from="1645769371574" duration="936000" />
       <workItem from="1645770786029" duration="5451000" />
-      <workItem from="1645815170170" duration="16779000" />
+      <workItem from="1645815170170" duration="17068000" />
+      <workItem from="1645854540325" duration="181000" />
+      <workItem from="1645854743063" duration="184000" />
     </task>
     <servers />
   </component>
