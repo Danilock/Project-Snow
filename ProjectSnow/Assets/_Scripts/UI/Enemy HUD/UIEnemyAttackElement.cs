@@ -47,29 +47,16 @@ namespace Game.UI
 
         private void Start()
         {
-            EnemyQueueManager.Instance.OnChangeEnemy += OnChangeEnemy;
+            EnemyQueueManager.Instance.OnElementDecided += OnDecideElement;
+            EnemyQueueManager.Instance.OnAttack += OnAttack;
 
             _image = GetComponent<Image>();
         }
 
         private void OnDisable()
         {
-            EnemyQueueManager.Instance.OnChangeEnemy -= OnChangeEnemy;
-        }
-
-        private void OnChangeEnemy(EnemyHealth enemy)
-        { 
-            _attack = enemy.GetComponent<EnemyAttack>();
-            
-            if(_attack == null)
-                return;
-            
-            _attack.OnDecideElement += OnDecideElement;
-            _attack.OnAttack += () =>
-            {
-                _currentElementImage.DOFade(0f, .3f);
-                _image.enabled = true;
-            };
+            EnemyQueueManager.Instance.OnElementDecided -= OnDecideElement;
+            EnemyQueueManager.Instance.OnAttack -= OnAttack;
         }
 
         private void OnDecideElement(Element element)
@@ -81,6 +68,12 @@ namespace Game.UI
             _image.enabled = false;
 
             _currentElementImage.transform.DOPunchScale(_scale, _duration, _vibration, _elasticity);
+        }
+
+        private void OnAttack()
+        {
+            _currentElementImage.DOFade(0f, .3f);
+            _image.enabled = true;
         }
     }
 }

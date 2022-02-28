@@ -32,6 +32,13 @@ namespace Managers
         public EnemyAttack GetEnemyAttack => _enemyAttack;
 
         #endregion
+
+        #region Events
+
+        public UnityAction<Element> OnElementDecided;
+        public UnityAction OnAttack;
+
+        #endregion
         
         private void Start()
         {   
@@ -88,6 +95,9 @@ namespace Managers
 
                     _enemyAttack = _currentEnemy.GetComponent<EnemyAttack>();
                     
+                    GetEnemyAttack.OnAttack += () => OnAttack.Invoke();
+                    GetEnemyAttack.OnDecideElement += element => OnElementDecided.Invoke(element);
+                    
                     enemyRenderer = _currentEnemy.GetComponentInChildren<SpriteRenderer>();
             
                     OnChangeEnemy?.Invoke(_currentEnemy);
@@ -104,6 +114,11 @@ namespace Managers
 
                 enemyRenderer = _currentEnemy.GetComponentInChildren<SpriteRenderer>();
                 enemyRenderer.DOFade(1f, 0f);
+                
+                _enemyAttack = _currentEnemy.GetComponent<EnemyAttack>();
+                
+                GetEnemyAttack.OnAttack += () => OnAttack.Invoke();
+                GetEnemyAttack.OnDecideElement += element => OnElementDecided.Invoke(element);
             
                 OnChangeEnemy?.Invoke(_currentEnemy);
             }
