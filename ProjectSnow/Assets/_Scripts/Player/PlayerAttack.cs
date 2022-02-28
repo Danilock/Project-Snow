@@ -25,13 +25,13 @@ namespace Game.Player
             if (_attack == null)
                 _attack = GetComponent<Attack>();
             
-            _attack.OnHit += OnHit;
+            _attack.OnHit.AddListener(RecoverEnergyOnHit);
         }
 
         /// <summary>
         /// Adding energy to player's energy source everytime we hit something.
         /// </summary>
-        private void OnHit()
+        private void RecoverEnergyOnHit()
         {
             _energy.AddEnergy(_energyToRecover);
         }

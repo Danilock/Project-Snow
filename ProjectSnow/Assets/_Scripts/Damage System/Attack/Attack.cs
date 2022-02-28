@@ -38,7 +38,7 @@ namespace Game.DamageSystem.Attacks
         [SerializeField] protected LayerMask Layers;
         #endregion
 
-        public UnityAction OnHit;
+        public UnityEvent OnHit;
         
         /// <summary>
         /// Damageable owning this Attack

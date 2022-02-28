@@ -21,6 +21,8 @@ namespace Game.Enemy
 
         [SerializeField] private int _currentIndex = 0;
 
+        [SerializeField] private UnityEvent _onHit;
+
         private bool IsLastHealthBar
         {
             get
@@ -61,11 +63,13 @@ namespace Game.Enemy
                 else
                 {
                     OnTakeDamage?.Invoke(incomingDamage);
+                    _onHit.Invoke();
                     SelectNextBar();
                 }
             }
             
             OnTakeDamage?.Invoke(incomingDamage);
+            _onHit.Invoke();
         }
 
         private void InitializeBars()

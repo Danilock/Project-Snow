@@ -17,21 +17,23 @@ namespace Game.Camera
         
         private void Start()
         {
-            EnemyQueueManager.Instance.OnElementDecided += ActiveAttackView;
+            EnemyQueueManager.Instance.OnElementDecided += ActiveAttackViewOnElementDecided;
             EnemyQueueManager.Instance.OnAttack += ActiveGameView;
+            EnemyQueueManager.Instance.OnChangeEnemy += ActiveGameViewOnChangeEnemy;
         }
 
         private void OnDisable()
         {
-            EnemyQueueManager.Instance.OnElementDecided -= ActiveAttackView;
+            EnemyQueueManager.Instance.OnElementDecided -= ActiveAttackViewOnElementDecided;
             EnemyQueueManager.Instance.OnAttack -= ActiveGameView;
+            EnemyQueueManager.Instance.OnChangeEnemy -= ActiveGameViewOnChangeEnemy;
         }
 
         public void SetAttackCameraState(bool state) => _enemyAttackCamera.gameObject.SetActive(state);
 
         public void SetGameCameraState(bool state) => _gameCamera.gameObject.SetActive(state);
 
-        public void ActiveAttackView(Element element)
+        public void ActiveAttackView()
         {
             SetGameCameraState(false);
             SetAttackCameraState(true);
@@ -42,5 +44,9 @@ namespace Game.Camera
             SetGameCameraState(true);
             SetAttackCameraState(false);
         }
+
+        private void ActiveAttackViewOnElementDecided(Element element) => ActiveAttackView();
+
+        private void ActiveGameViewOnChangeEnemy(EnemyHealth enemy) => ActiveGameView();
     }
 }
