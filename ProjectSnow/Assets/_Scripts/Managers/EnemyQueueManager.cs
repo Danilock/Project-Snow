@@ -11,7 +11,7 @@ using UnityEngine.Events;
 
 namespace Managers
 {
-    public class EnemyQueueManager : SimpleSingleton<EnemyQueueManager>
+    public class EnemyQueueManager : SceneSingleton<EnemyQueueManager>
     {
         #region Private Fields
         [SerializeField] private List<EnemyHealth> _enemies;
