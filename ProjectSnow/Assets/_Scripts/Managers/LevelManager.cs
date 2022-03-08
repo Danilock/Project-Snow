@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class LevelManager : SimpleSingleton<LevelManager>
+    public class LevelManager : SceneSingleton<LevelManager>
     {
         [SerializeField] private PlayerController _player;
         public PlayerController GetPlayer => _player;

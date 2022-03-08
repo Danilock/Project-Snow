@@ -26,7 +26,7 @@ public class PersistentSingleton<T> : MonoBehaviour where T : Component
     }
 }
 
-public class SimpleSingleton<T> : MonoBehaviour where T : Component
+public class SceneSingleton<T> : MonoBehaviour where T : Component
 {
     public static T Instance => _instance;
     protected static T _instance;
