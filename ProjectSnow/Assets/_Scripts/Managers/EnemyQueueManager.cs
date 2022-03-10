@@ -19,6 +19,9 @@ namespace Managers
         private EnemyHealth _currentEnemy;
         
         private int _currentEnemyIndex = 0;
+
+        public int GetCurrentIndex => _currentEnemyIndex;
+        public int GetAmountOfEnemies => _enemies.Count;
         #endregion
 
         #region Public Fields
@@ -127,7 +130,7 @@ namespace Managers
         [Button("Find Enemies"), GUIColor(0.4f, 0.8f, 1)]
         private void FindEnemies()
         {
-            _enemies = FindObjectsOfType<EnemyHealth>().ToList();
+            _enemies = FindObjectsOfType<EnemyHealth>(true).ToList();
         }
     }
 }

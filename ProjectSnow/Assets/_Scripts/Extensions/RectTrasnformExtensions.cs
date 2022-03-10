@@ -34,4 +34,9 @@ public static class RectTransformExtensions
         SetBottom(rt, 0f);
         SetTop(rt, 0f);
     }
+
+    public static void SetZPosition(this RectTransform rt, float newZ)
+    {
+        rt.position = new Vector3(rt.position.x, rt.position.y, newZ);
+    }
 }

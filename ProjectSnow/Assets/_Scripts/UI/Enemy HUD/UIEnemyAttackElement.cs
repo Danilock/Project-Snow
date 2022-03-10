@@ -16,12 +16,8 @@ namespace Game.UI
     /// </summary>
     public class UIEnemyAttackElement : MonoBehaviour
     {
-        
-        [SerializeField, FoldoutGroup("Settings")] private float _secondsBetweenIcons = .5f;
 
         [SerializeField, FoldoutGroup("Settings")] private Image _currentElementImage;
-
-        [SerializeField, FoldoutGroup("Settings")] private Sprite[] _allPossibleElements;
 
         private Image _image;
 
@@ -40,26 +36,22 @@ namespace Game.UI
         private float _elasticity = 1f;
 
         #endregion
-        
-        private int _currentIndex;
-
-        private EnemyAttack _attack;
 
         private void Start()
         {
-            EnemyQueueManager.Instance.OnElementDecided += OnDecideElement;
-            EnemyQueueManager.Instance.OnAttack += OnAttack;
+            EnemyQueueManager.Instance.OnElementDecided += UpdateImage;
+            EnemyQueueManager.Instance.OnAttack += DoFadeImage;
 
             _image = GetComponent<Image>();
         }
 
         private void OnDisable()
         {
-            EnemyQueueManager.Instance.OnElementDecided -= OnDecideElement;
-            EnemyQueueManager.Instance.OnAttack -= OnAttack;
+            EnemyQueueManager.Instance.OnElementDecided -= UpdateImage;
+            EnemyQueueManager.Instance.OnAttack -= DoFadeImage;
         }
 
-        private void OnDecideElement(Element element)
+        private void UpdateImage(Element element)
         {
             _currentElementImage.sprite = element.Image;
 
@@ -70,7 +62,7 @@ namespace Game.UI
             _currentElementImage.transform.DOPunchScale(_scale, _duration, _vibration, _elasticity);
         }
 
-        private void OnAttack()
+        private void DoFadeImage()
         {
             _currentElementImage.DOFade(0f, .3f);
             _image.enabled = true;
