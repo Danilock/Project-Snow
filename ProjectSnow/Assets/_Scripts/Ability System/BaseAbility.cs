@@ -87,5 +87,7 @@ namespace Game.AbilitySystem
             yield return new WaitForSeconds(Cooldown);
             CanUse = true;
         }
+
+        public void SetCooldown(float amount) => Cooldown = amount;
     }
 }

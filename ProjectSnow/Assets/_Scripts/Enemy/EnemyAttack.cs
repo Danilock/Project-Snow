@@ -76,12 +76,11 @@ public class EnemyAttack : BaseAbility
 
         _animator = GetComponent<Animator>();
         _health = GetComponent<EnemyHealth>();
+        _attack = GetComponent<Attack>();
     }
 
     private void Start()
     {
-        _attack = GetComponent<Attack>();
-
         StartCoroutine(HandleCooldownCoroutine);
     }
 
@@ -89,6 +88,9 @@ public class EnemyAttack : BaseAbility
     {
         if (_min > _max)
             _max = _min;
+
+        if (_attack == null)
+            _attack = GetComponent<Attack>();
     }
     #endregion
 
@@ -132,4 +134,16 @@ public class EnemyAttack : BaseAbility
         _animator.SetTrigger(HashAttack);
         _health.SetInvulnerable(false);
     }
+
+    public void SetDamage(float damageAmount) => _attack.SetDamage(damageAmount);
+
+    public void SetMinimunAndMaximumCooldown(float min, float max)
+    {
+        _min = min;
+        _max = max;
+    }
+
+    public void SetPossibleElements(List<Element> elements) => _possibleElements = elements;
+
+    public void SetSecondsInChargeAttackState(float seconds) => _secondsChargeAttack = seconds;
 }

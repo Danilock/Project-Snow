@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -57,5 +58,7 @@ namespace Game.DamageSystem.Attacks
         {
             AttackElement = newElement;
         }
+
+        public void SetDamage(float amount) => DamageAmount = amount;
     }
 }

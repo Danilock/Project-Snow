@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using Game.DamageSystem;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
 namespace Game.Enemy
@@ -15,7 +16,7 @@ namespace Game.Enemy
 
         public List<EnemyHealthBar> HealthBars => _healthBars;
 
-        public EnemyHealthBar CurrentHealthBar;
+        [ReadOnly] public EnemyHealthBar CurrentHealthBar;
 
         public UnityAction<EnemyHealthBar> OnChangeBar;
 
@@ -99,5 +100,7 @@ namespace Game.Enemy
             
             OnChangeBar?.Invoke(CurrentHealthBar);
         }
+
+        public void SetHealthBars(List<EnemyHealthBar> newBarsList) => _healthBars = newBarsList;
     }
 }
