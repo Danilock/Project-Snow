@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/Enemy Count/EnemyCountInstance.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/Enemy Count/EnemyCountInstance.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Extensions/RectTrasnformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Extensions/RectTrasnformExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/EnemyQueueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/EnemyQueueManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Enemy HUD/UIEnemyAttackElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Enemy HUD/UIEnemyAttackElement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/EnemyCount/UIEnemyCountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/EnemyCount/UIEnemyCountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/EnemyCount/UIEnemyCountInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/EnemyCount/UIEnemyCountInstance.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/43/84adcc62/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/67/84a4672a/BaseInvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b19b1523f546475096adde5e7b0547015a200/a5/08d92683/SerializedMonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.2.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -124,7 +125,7 @@
       <workItem from="1645854540325" duration="181000" />
       <workItem from="1645854743063" duration="4664000" />
       <workItem from="1646006970070" duration="4346000" />
-      <workItem from="1646941908764" duration="8136000" />
+      <workItem from="1646941908764" duration="13113000" />
     </task>
     <servers />
   </component>
