@@ -130,6 +130,8 @@ namespace Managers
             {
                 EnemyController enemy = Instantiate(_enemyPrefab, Vector3.zero, Quaternion.identity, enemiesContainer.transform);
                 EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+
+                enemy.name = currentProfile.name + "(Clone)";
                 
                 enemy.transform.localPosition = Vector3.zero;
                 enemy.SetProfile(currentProfile);
