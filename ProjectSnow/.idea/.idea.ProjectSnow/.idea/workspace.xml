@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Base Enemy Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Base Enemy Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Render Pipeline.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Render Pipeline.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline_Renderer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline_Renderer.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Managers/EnemyQueueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Managers/EnemyQueueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Bloom Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Bloom Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Vignette Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Vignette Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +38,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.7.0/Runtime/Volume/VolumeProfile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/43/84adcc62/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/1e/43fdb3b4/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/67/84a4672a/BaseInvokableCall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b19b1523f546475096adde5e7b0547015a200/a5/08d92683/SerializedMonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.2.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -39,6 +55,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0ee480759f3d481d82ada245dc74f9fd13be00/4e/b29de3ad/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/33bf563e8e8945ddaf475ee8e5137b159600/87/ca244877/FoldoutGroupAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aaad3e1c916d40bb8feff63961c7924125a00/ab/c0547419/MethodInfoExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.7.0/Runtime/Volume/Volume.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.7.0/Runtime/Volume/VolumeComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.7.0/Runtime/Volume/VolumeManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -126,7 +145,7 @@
       <workItem from="1646006970070" duration="4346000" />
       <workItem from="1646941908764" duration="13113000" />
       <workItem from="1647068015706" duration="3537000" />
-      <workItem from="1647228295571" duration="2921000" />
+      <workItem from="1647228295571" duration="5376000" />
     </task>
     <servers />
   </component>
