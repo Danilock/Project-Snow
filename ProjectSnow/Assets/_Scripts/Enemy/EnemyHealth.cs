@@ -31,13 +31,6 @@ namespace Game.Enemy
                 return _currentIndex == _healthBars.Count - 1;
             }
         }
-
-        void Awake()
-        {
-            InitializeBars();
-            
-            SelectBar(0);
-        }
         public override void DoDamage(DamageInfo incomingDamage)
         {
             if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)
@@ -73,7 +66,7 @@ namespace Game.Enemy
             _onHit.Invoke();
         }
 
-        private void InitializeBars()
+        public void InitializeBars()
         {
             foreach (EnemyHealthBar currentBar in _healthBars)
             {
@@ -83,7 +76,7 @@ namespace Game.Enemy
             _healthBars[_healthBars.Count - 1].IsLastHealthBar = true;
         }
 
-        private void SelectNextBar()
+        public void SelectNextBar()
         {
             CurrentHealthBar.OnDestroybar?.Invoke();
             

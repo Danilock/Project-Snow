@@ -31,7 +31,7 @@ namespace Game.UI
         private EnemyHealth GetCurrentEnemyHealth => EnemyQueueManager.Instance.GetCurrentEnemy;
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(1f);
 
             EnemyQueueManager.Instance.OnChangeEnemy += SetupBars;
             

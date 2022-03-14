@@ -19,25 +19,6 @@ namespace Game.Enemy
         
         [FoldoutGroup("Art")] [SerializeField] private SpriteRenderer _renderer;
         
-        private void Awake()
-        {
-            if(_profile == null)
-                return;
-
-            if(!InitializeDependenciesIsSucess())
-                return;
-            
-            _attack.SetDamage(_profile.Damage);
-            _attack.SetCooldown(_profile.Cooldown);
-            _attack.SetMinimunAndMaximumCooldown(_profile.MinCooldown, _profile.MaxCooldown);
-            _attack.SetPossibleElements(_profile.PossibleElements);
-            _attack.SetSecondsInChargeAttackState(_profile.SecondsInChargeAttackState);
-            _health.SetHealthBars(_profile.HealthBars);
-            _scale.SetScaleProperties(_profile.TargetScaleSize, _profile.Duration, _profile.Vibration, _profile.Elasticity);
-            _renderer.sprite = _profile.EnemySprite;
-            _renderer.transform.localPosition = _profile.BodyOffset;
-        }
-
         private bool InitializeDependenciesIsSucess()
         {
             if (_attack == null)
@@ -48,5 +29,24 @@ namespace Game.Enemy
 
             return _health != null && _attack != null;
         }
+
+        public void SetupEnemyAttributes()
+        {
+            _attack.SetDamage(_profile.Damage);
+            _attack.SetCooldown(_profile.Cooldown);
+            _attack.SetMinimunAndMaximumCooldown(_profile.MinCooldown, _profile.MaxCooldown);
+            _attack.SetPossibleElements(_profile.PossibleElements);
+            _attack.SetSecondsInChargeAttackState(_profile.SecondsInChargeAttackState);
+            
+            _health.SetHealthBars(_profile.HealthBars);
+            _health.InitializeBars();
+            _health.SelectBar(0);
+            
+            _scale.SetScaleProperties(_profile.TargetScaleSize, _profile.Duration, _profile.Vibration, _profile.Elasticity);
+            _renderer.sprite = _profile.EnemySprite;
+            _renderer.transform.localPosition = _profile.BodyOffset;
+        }
+
+        public void SetProfile(EnemyProfile newProfile) => _profile = newProfile;
     }
 }

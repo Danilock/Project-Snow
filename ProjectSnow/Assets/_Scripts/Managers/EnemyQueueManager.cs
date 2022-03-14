@@ -14,7 +14,12 @@ namespace Managers
     public class EnemyQueueManager : SceneSingleton<EnemyQueueManager>
     {
         #region Private Fields
-        [SerializeField] private List<EnemyHealth> _enemies;
+
+        [SerializeField] private EnemyProfile[] _enemiesToSpawn;
+
+        [SerializeField] private EnemyController _enemyPrefab;
+        
+        [SerializeField, ReadOnly] private List<EnemyHealth> _enemies;
         
         private EnemyHealth _currentEnemy;
         
@@ -43,26 +48,16 @@ namespace Managers
 
         #endregion
         
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            InstantiateEnemiesInScene();
+        }
+
         private void Start()
-        {   
+        {
             SpawnNextEnemy();
-        }
-
-        private void OnEnable()
-        {
-            foreach (EnemyHealth currentEnemy in _enemies)
-            {
-                currentEnemy.OnDeath += OnDeath;
-                currentEnemy.gameObject.SetActive(false);
-            }
-        }
-
-        private void OnDisable()
-        {
-            foreach (EnemyHealth currentEnemy in _enemies)
-            {
-                currentEnemy.OnDeath -= OnDeath;
-            }
         }
 
         private void OnDeath(DamageInfo arg0)
@@ -127,10 +122,24 @@ namespace Managers
             }
         }
 
-        [Button("Find Enemies"), GUIColor(0.4f, 0.8f, 1)]
-        private void FindEnemies()
+        private void InstantiateEnemiesInScene()
         {
-            _enemies = FindObjectsOfType<EnemyHealth>(true).ToList();
+            GameObject enemiesContainer = new GameObject("Enemies");
+            
+            foreach (EnemyProfile currentProfile in _enemiesToSpawn)
+            {
+                EnemyController enemy = Instantiate(_enemyPrefab, Vector3.zero, Quaternion.identity, enemiesContainer.transform);
+                EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+                
+                enemy.transform.localPosition = Vector3.zero;
+                enemy.SetProfile(currentProfile);
+                enemy.SetupEnemyAttributes();
+                health.OnDeath += OnDeath; 
+                
+                enemy.gameObject.SetActive(false);
+
+                _enemies.Add(enemy.GetComponent<EnemyHealth>());
+            }
         }
     }
 }
