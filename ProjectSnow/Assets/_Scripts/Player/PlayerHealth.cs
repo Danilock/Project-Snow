@@ -40,7 +40,7 @@ namespace Game.Player
                     
                     incomingDamage.Transmitter.DoDamage(
                         new DamageInfo(
-                            this, damageAmount, true, Shield.Element)
+                            this, damageAmount, true, Shield.Element, true)
                     );
                     
                     _onShieldBlock?.Invoke();

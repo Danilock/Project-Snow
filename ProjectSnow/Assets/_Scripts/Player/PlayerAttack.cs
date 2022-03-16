@@ -5,6 +5,7 @@ using Game.AbilitySystem;
 using Game.DamageSystem.Attacks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Game.Player
@@ -16,7 +17,7 @@ namespace Game.Player
 
         [FoldoutGroup("On Hit"), SerializeField] private float _energyToRecover = 3f;
         private EnergySource _energy;
-        
+
         private void Start()
         {
             PlayerInput.Instance.Actions.Player.Attack.canceled += AttackOncanceled;
@@ -31,17 +32,12 @@ namespace Game.Player
         /// <summary>
         /// Adding energy to player's energy source everytime we hit something.
         /// </summary>
-        private void RecoverEnergyOnHit()
-        {
-            _energy.AddEnergy(_energyToRecover);
-        }
+        private void RecoverEnergyOnHit() => _energy.AddEnergy(_energyToRecover);
 
         private void Update()
         {
             if (PlayerInput.Instance.AttackKeyPressed)
-            {
                 TriggerAbility();
-            }
         }
 
         public override void TriggerAbility()

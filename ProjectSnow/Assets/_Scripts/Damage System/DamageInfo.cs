@@ -13,8 +13,10 @@ namespace Game.DamageSystem
         /// Who is causing this damage.
         /// </summary>
         public Damageable Transmitter;
+
         public float Damage;
         public bool IgnoreInvulnerability = false;
+        public bool IgnoreElement = false;
 
 
         private Element _element;
@@ -30,7 +32,10 @@ namespace Game.DamageSystem
             }
             private set => _element = value;
         }
-        public DamageInfo(){ }
+
+        public DamageInfo()
+        {
+        }
 
         public DamageInfo(Damageable transmitter, float damage, bool ignoreInvulnerability)
         {
@@ -48,11 +53,22 @@ namespace Game.DamageSystem
         /// <param name="element">Independent element of this DamageInfo. If it's null then we set the element of the transmitter.</param>
         public DamageInfo(Damageable transmitter, float damage, bool ignoreInvulnerability, Element element)
         {
-            
+
             this.Transmitter = transmitter;
             this.Damage = damage;
             this.IgnoreInvulnerability = ignoreInvulnerability;
             this.Element = element;
+
+        }
+
+        public DamageInfo(Damageable transmitter, float damage, bool ignoreInvulnerability, Element element,
+            bool ignoreElement)
+        {
+            this.Transmitter = transmitter;
+            this.Damage = damage;
+            this.IgnoreInvulnerability = ignoreInvulnerability;
+            this.Element = element;
+            this.IgnoreElement = ignoreElement;
         }
     }
 }

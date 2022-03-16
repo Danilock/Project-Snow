@@ -55,7 +55,7 @@ namespace Managers
             InstantiateEnemiesInScene();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             SpawnNextEnemy();
         }
@@ -80,6 +80,7 @@ namespace Managers
                 seq.Append(enemyRenderer.DOFade(0f, 1f).OnComplete(() =>
                 {
                     _currentEnemy.gameObject.SetActive(false);
+                    _currentEnemy.OnTakeDamage = null;
 
                     //Checking if it's the last enemy
                     if (_currentEnemyIndex == _enemies.Count - 1)

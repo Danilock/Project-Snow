@@ -9,7 +9,6 @@ using UnityEngine;
 namespace Game.Tween
 {
     [AddComponentMenu("Tween/DoScale")]
-    [RequireComponent(typeof(Damageable))]
     public class DoScale : MonoBehaviour
     {
         [FoldoutGroup("Tween Settings")] 
@@ -19,7 +18,7 @@ namespace Game.Tween
         [SerializeField] private float _duration = 1;
         
         [FoldoutGroup("Tween Settings")] 
-        [SerializeField] private int _elasticity;
+        [SerializeField, Range(0, 1)] private int _elasticity;
         
         [FoldoutGroup("Tween Settings")] 
         [SerializeField] private int _vibration;

@@ -29,10 +29,8 @@ namespace Game.UI
         private List<HealthBarInstance> _instantiatedBars = new List<HealthBarInstance>();
 
         private EnemyHealth GetCurrentEnemyHealth => EnemyQueueManager.Instance.GetCurrentEnemy;
-        private IEnumerator Start()
+        private void Start()
         {
-            yield return new WaitForSeconds(1f);
-
             EnemyQueueManager.Instance.OnChangeEnemy += SetupBars;
             
             SetupBars(GetCurrentEnemyHealth);
