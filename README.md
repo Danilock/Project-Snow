@@ -1,2 +1,3 @@
 # Project-Snow
-Loading something cool...
+
+![Project Snow Gif] (/Miscellaneous/SnowAlphaGameplay.gif)
