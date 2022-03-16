@@ -1,3 +1,3 @@
 # Project-Snow
 
-![Project Snow Gif] (/Miscellaneous/SnowAlphaGameplay.gif)
+![Project Snow Gif](/Miscellaneous/SnowAlphaGameplay.gif)
