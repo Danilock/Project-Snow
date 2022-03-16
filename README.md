@@ -12,3 +12,12 @@ As we mentioned above, it's a 2D casual mobile game. Player will have the option
 <div>
   <img src="https://github.com/Danilock/Project-Snow/blob/main/Miscellaneous/Synergy.png" alt="Girl in a jacket" width="20%" height="25%">
 </div>
+
+### Which Unity version are you using for the project?
+# 2020.3.25f1
+
+### Is this going to be available for PC? 🎞🎮🕹
+We're planning to release a PC and Web version, by the way, this will only require adjustments in the Input System.
+
+### Can I contribute?
+Yes, of course. You can download the project and do whatever you want with it. ✌
