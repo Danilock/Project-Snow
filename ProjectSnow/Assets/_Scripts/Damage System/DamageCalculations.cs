@@ -27,12 +27,12 @@ namespace Game.DamageSystem
             float damageResult = damageAmount;
 
             //If the transmitter has a weakest element then we increase the damage.
-            if (transmitter.StrongAgainst.Contains(receiver))
-                damageResult += (damageResult * (_instance._weakerDamage / 100));
+            if (transmitter.IsCounterOf(receiver))
+                damageResult += (damageResult * (_instance._strongDamage / 100));
 
             //Otherwise, we decrease the damage.
-            else if (transmitter.WeakAgainst.Contains(receiver))
-                damageResult -= (damageResult * (_instance._strongDamage / 100));
+            else if (transmitter.IsWeakerThan(receiver))
+                damageResult -= (damageResult * (_instance._weakerDamage / 100));
 
             return damageResult;
         }

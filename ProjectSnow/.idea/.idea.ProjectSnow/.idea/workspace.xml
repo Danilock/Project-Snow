@@ -6,23 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5a67fe80-969c-47eb-9600-776f8228702e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectSnow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Base Enemy Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Base Enemy Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Enemies/Yellow Manati Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Render Pipeline.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Render Pipeline.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline_Renderer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Profiles/Render Pipeline/2D Universal Pipeline_Renderer.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/Damage Hit Stat Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/Damage Hit Stat Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Bloom Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Bloom Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Vignette Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SampleScene/Vignette Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Scripts.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageCalculations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageCalculations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Damage System/DamageInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Enemy/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Enemy/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Damage/DamageHitUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Damage/DamageHitUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +135,8 @@
       <workItem from="1646006970070" duration="4346000" />
       <workItem from="1646941908764" duration="13113000" />
       <workItem from="1647068015706" duration="3537000" />
-      <workItem from="1647228295571" duration="5376000" />
+      <workItem from="1647228295571" duration="5971000" />
+      <workItem from="1647369836329" duration="3592000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Game.DamageSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -13,6 +14,12 @@ namespace Game.UI
     {
         [SerializeField] private TMP_Text _tmpText;
 
+        [FoldoutGroup("Tweening")] 
+        [SerializeField]
+        private Vector3 _additiveEndPosition = new Vector3(0f, 5f, 0f);
+
+        [FoldoutGroup("Tweening")] [SerializeField, Header("Both fade and movement of this HIT UI Element")]
+        private float _tweenDuration = .5f;
         private Image _canvasGroup;
 
         private void Start()
@@ -22,10 +29,10 @@ namespace Game.UI
 
         public override void Init(DamageInfo damageInfo)
         {
-            _tmpText.text = damageInfo.Damage > 1 ? Mathf.Round(damageInfo.Damage).ToString() : damageInfo.Damage.ToString();
+            _tmpText.text = damageInfo.Damage > 1 ? Mathf.Round(damageInfo.Damage).ToString() : "MISS";
 
-            _canvasGroup.DOFade(0f, .5f);
-            transform.DOMoveY(transform.position.y + 5f, .5f).OnComplete(() => gameObject.SetActive(false));
+            _canvasGroup.DOFade(0f, _tweenDuration);
+            transform.DOMove(transform.position + _additiveEndPosition, _tweenDuration).OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

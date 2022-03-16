@@ -45,7 +45,7 @@ namespace Game.DamageSystem
         /// <param name="transmitter"></param>
         /// <param name="damage"></param>
         /// <param name="ignoreInvulnerability"></param>
-        /// <param name="element">Independent element of this DamageInfo. If it's null then we set hte element of the transmitter.</param>
+        /// <param name="element">Independent element of this DamageInfo. If it's null then we set the element of the transmitter.</param>
         public DamageInfo(Damageable transmitter, float damage, bool ignoreInvulnerability, Element element)
         {
             

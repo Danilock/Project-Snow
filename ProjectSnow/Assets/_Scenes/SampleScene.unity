@@ -1531,8 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d507d192cf6af4692739c101c34687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _strongDamage: 70
-  _weakerDamage: 98
+  _strongDamage: 45
+  _weakerDamage: 100
 --- !u!4 &726786266
 Transform:
   m_ObjectHideFlags: 0

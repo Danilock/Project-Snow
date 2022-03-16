@@ -40,7 +40,7 @@ namespace Game.Enemy
             (
                 incomingDamage.Damage, 
                 _element, 
-                incomingDamage.Transmitter.Element
+                incomingDamage.Element
             );
 
             incomingDamage.Damage = endDamage;
@@ -62,6 +62,7 @@ namespace Game.Enemy
                 }
             }
             
+            Debug.Log(incomingDamage.Damage);
             OnTakeDamage?.Invoke(incomingDamage);
             _onHit.Invoke();
         }
