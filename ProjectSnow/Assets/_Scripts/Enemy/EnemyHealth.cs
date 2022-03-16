@@ -36,8 +36,6 @@ namespace Game.Enemy
             if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)
                 return;
 
-            Debug.Log($"Damage: {incomingDamage.Damage} ---- Element: {incomingDamage.Element}");
-            
             float endDamage = incomingDamage.IgnoreElement ? incomingDamage.Damage : DamageCalculations.CalculateDamageBasedInElements
             (
                 incomingDamage.Damage, 
@@ -46,8 +44,6 @@ namespace Game.Enemy
             );
 
             incomingDamage.Damage = endDamage;
-            
-            Debug.LogError(endDamage);
             
             CurrentHealthBar.CurrentValue -= endDamage;
 
