@@ -36,16 +36,10 @@ namespace Game.Enemy
             if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)
                 return;
 
-            float endDamage = incomingDamage.IgnoreElement ? incomingDamage.Damage : DamageCalculations.CalculateDamageBasedInElements
-            (
-                incomingDamage.Damage, 
-                _element, 
-                incomingDamage.Element
-            );
-
-            incomingDamage.Damage = endDamage;
+            if ((incomingDamage.Element != CurrentHealthBar.Element) && !incomingDamage.IgnoreElement)
+                return;
             
-            CurrentHealthBar.CurrentValue -= endDamage;
+            CurrentHealthBar.CurrentValue -= incomingDamage.Damage;
 
             if (CurrentHealthBar.CurrentValue <= 0)
             {

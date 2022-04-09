@@ -59,7 +59,7 @@ namespace Game.DamageSystem.Attacks
                 
                 dmg.DoDamage(new DamageInfo(Owner, DamageAmount, IgnoreTargetInvulnerability, AttackElement));
                 
-                if(!dmg.Invulnerable && !AttackElement.IsWeakerThan(dmg.Element) && !dmg.IsDead)
+                if(!dmg.Invulnerable && dmg.Element == Element && !dmg.IsDead)
                     OnHit?.Invoke();
             }
         }
