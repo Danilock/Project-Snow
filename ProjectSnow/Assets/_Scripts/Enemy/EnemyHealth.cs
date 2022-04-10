@@ -37,7 +37,10 @@ namespace Game.Enemy
                 return;
 
             if ((incomingDamage.Element != CurrentHealthBar.Element) && !incomingDamage.IgnoreElement)
+            {
+                OnMiss?.Invoke();
                 return;
+            }
             
             CurrentHealthBar.CurrentValue -= incomingDamage.Damage;
 

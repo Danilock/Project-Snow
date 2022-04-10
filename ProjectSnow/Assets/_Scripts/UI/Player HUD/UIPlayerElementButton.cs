@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace Game.UI
@@ -15,14 +16,12 @@ namespace Game.UI
     public class UIPlayerElementButton : BaseButton
     {
         [SerializeField] private Element _elemetToChoose;
-        
-        private enum Target
-        {
-            Attack,
-            Shield
-        }
 
         [SerializeField] private Target _target = Target.Attack;
+
+        [SerializeField] private UIElementCursor _cursor;
+
+        public Element GetElement => _elemetToChoose;
 
         public void PickElement()
         {
@@ -30,6 +29,13 @@ namespace Game.UI
                 LevelManager.Instance.GetPlayer.GetPlayerElementSwitch.SelectPlayerElement(_elemetToChoose);
             else
                 LevelManager.Instance.GetPlayer.GetPlayerHealth.Shield.ChangeElement(_elemetToChoose);
+            
+            _cursor.SetCursor(this);
         }
+    }
+    public enum Target
+    {
+        Attack,
+        Shield
     }
 }

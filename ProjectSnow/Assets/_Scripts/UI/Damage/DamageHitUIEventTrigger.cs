@@ -23,15 +23,17 @@ namespace Game.UI
         private void OnEnable()
         {
             _damageable.OnTakeDamage += ShowHitUIStat;
+            _damageable.OnMiss += ShowMissText;
         }
 
         private void OnDisable()
         {
             _damageable.OnTakeDamage -= ShowHitUIStat;
+            _damageable.OnMiss -= ShowMissText;
         }
 
         /// <summary>
-        /// We instantiate an state everytime the damageable object is hit.
+        /// Instantiate a state everytime the damageable object is hit.
         /// The stat will show the amount of damage this damageable is receiving.
         /// </summary>
         /// <param name="info"></param>
@@ -42,6 +44,15 @@ namespace Game.UI
 
             obj.transform.position = transform.position;
             hitUi.Init(info);
+        }
+
+        private void ShowMissText()
+        {
+            GameObject obj = ObjectPooler.Instance.GetObjectFromPool(_hitStatsPool);
+            DamageHitUI hitUi = obj.GetComponent<DamageHitUI>();
+
+            obj.transform.position = transform.position;
+            hitUi.ShowMissText();
         }
     }
 }

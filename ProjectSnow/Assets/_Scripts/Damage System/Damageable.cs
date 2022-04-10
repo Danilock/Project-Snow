@@ -66,6 +66,8 @@ namespace Game.DamageSystem
 
         public UnityAction<DamageInfo> OnTakeDamage, OnDeath;
 
+        public UnityAction OnMiss;
+
         #endregion
 
         #region Methods

@@ -29,7 +29,15 @@ namespace Game.UI
 
         public override void Init(DamageInfo damageInfo)
         {
-            _tmpText.text = damageInfo.Damage > 1 ? Mathf.Round(damageInfo.Damage).ToString() : "MISS";
+            _tmpText.text = Mathf.Round(damageInfo.Damage).ToString();
+
+            _canvasGroup.DOFade(0f, _tweenDuration);
+            transform.DOMove(transform.position + _additiveEndPosition, _tweenDuration).OnComplete(() => gameObject.SetActive(false));
+        }
+
+        public void ShowMissText()
+        {
+            _tmpText.text = "MISS";
 
             _canvasGroup.DOFade(0f, _tweenDuration);
             transform.DOMove(transform.position + _additiveEndPosition, _tweenDuration).OnComplete(() => gameObject.SetActive(false));
