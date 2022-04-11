@@ -14,6 +14,9 @@ namespace Game.UI
     public class UIElementCursor : MonoBehaviour
     {
         [SerializeField] private Image Image;
+
+        [SerializeField] private Target _target;
+
         public void SetCursor(UIPlayerElementButton button)
         {
             Image.transform.DOMove(button.transform.position, .1f).OnComplete(() =>

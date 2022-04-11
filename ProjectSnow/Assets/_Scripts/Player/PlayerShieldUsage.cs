@@ -15,6 +15,8 @@ namespace Game.Player
         [SerializeField] private Damageable _damageable;
         [SerializeField, Range(0, 100)] private float _shieldDamageOnBlock = 20f;
 
+        [SerializeField] private float _shieldDuration = 1f;
+
         public float ShieldDamageOnBlock => _shieldDamageOnBlock;
 
         private void Start()
@@ -36,7 +38,14 @@ namespace Game.Player
                 return;
 
             EnergySource.UseEnergy(RequiredEnergy);
+            StartCoroutine(HandleShieldDuration_CO());
+        }
+
+        private IEnumerator HandleShieldDuration_CO()
+        {
             _damageable.Shield.IsActive = true;
+            yield return new WaitForSeconds(_shieldDuration);
+            _damageable.Shield.IsActive = false;
         }
     }
 }
