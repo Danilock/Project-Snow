@@ -18,9 +18,6 @@ namespace Game.Player
         
         #region Attack
 
-        [FoldoutGroup("Attak Animation")] [SerializeField]
-        private int _animationsCount = 2;
-
         [SerializeField] private int _attackIndex;
 
         private PlayerAttack _attack;

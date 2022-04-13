@@ -14,16 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBars:
   - StartValue: 500
-    CurrentValue: 0
+    CurrentValue: 300
     Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-    IsLastHealthBar: 0
-  - StartValue: 250
-    CurrentValue: 70
-    Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
-    IsLastHealthBar: 0
-  - StartValue: 1300
-    CurrentValue: 1300
-    Element: {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
     IsLastHealthBar: 1
   Damage: 5
   Cooldown: 0.5

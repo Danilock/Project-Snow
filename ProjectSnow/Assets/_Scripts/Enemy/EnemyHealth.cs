@@ -91,6 +91,12 @@ namespace Game.Enemy
             OnChangeBar?.Invoke(CurrentHealthBar);
         }
 
-        public void SetHealthBars(List<EnemyHealthBar> newBarsList) => _healthBars = newBarsList;
+        public void SetHealthBars(List<EnemyHealthBar> newBarsList)
+        {
+            for(int i = 0; i < newBarsList.Count; i++)
+            {
+                _healthBars[i] = new EnemyHealthBar(newBarsList[i].StartValue, newBarsList[i].Element);
+            }
+        }
     }
 }

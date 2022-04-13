@@ -27,5 +27,13 @@ namespace Game.Enemy
         /// Once the bar's health turns to zero.
         /// </summary>
         public UnityAction OnDestroybar;
+
+        public EnemyHealthBar() { }
+
+        public EnemyHealthBar(float startValue, Element element)
+        {
+            StartValue = startValue;
+            Element = element;
+        }
     }
 }

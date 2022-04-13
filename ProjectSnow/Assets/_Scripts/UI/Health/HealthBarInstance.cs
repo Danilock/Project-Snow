@@ -7,6 +7,8 @@ using ObjectPooling;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Managers;
+using Game.DamageSystem;
 
 namespace Game.UI
 {
@@ -32,9 +34,9 @@ namespace Game.UI
         
         public Image GetImage => _image;
         public EnemyHealthBar GetBar => _healthBar;
-        
+
         #endregion
-        
+
         public void Init(EnemyHealthBar healthBar)
         {
             _healthBar = healthBar;
@@ -106,6 +108,11 @@ namespace Game.UI
         private void IncreaseBarSize()
         {
             _image.transform.DOScaleY(transform.localScale.y + _scale, .5f);
+        }
+
+        public void ChangeBarInstanceImage(Sprite spr) 
+        {
+            _image.sprite = spr;
         }
     }
 }

@@ -16,15 +16,9 @@ namespace Game.UI
     {
         [SerializeField] private GameObject _healthContainer;
         [SerializeField] private HealthBarInstance _healthInstancePrefab;
-        
-        [SerializeField] private Image _currentElementImage;
 
-        [FoldoutGroup("Tweening")] [SerializeField]
-        private Vector3 _punchCurrentElementImage;
-
-        [FoldoutGroup("Tweening"), SerializeField] private float _duration = 1f;
-        [FoldoutGroup("Tweening"), SerializeField] private int _vibration = 10;
-        [FoldoutGroup("Tweening"), SerializeField] private float _elasticity = 0f;
+        [SerializeField]
+        private UIEnemyAttackElement _uIEnemyAttackElement;
 
         private List<HealthBarInstance> _instantiatedBars = new List<HealthBarInstance>();
 
@@ -32,6 +26,7 @@ namespace Game.UI
         private void Start()
         {
             EnemyQueueManager.Instance.OnChangeEnemy += SetupBars;
+            EnemyQueueManager.Instance.OnElementDecided += UpdateCurrentBarImage;
             
             SetupBars(GetCurrentEnemyHealth);
         }
@@ -39,6 +34,7 @@ namespace Game.UI
         private void OnDisable()
         {
             EnemyQueueManager.Instance.OnChangeEnemy -= SetupBars;
+            EnemyQueueManager.Instance.OnElementDecided -= UpdateCurrentBarImage;
         }
 
         private void SetupBars(EnemyHealth newEnemy)
@@ -48,8 +44,8 @@ namespace Game.UI
                 DeletePreviousBars();
 
             //Register to onhit event of the new enemy
-            newEnemy.OnTakeDamage += UpdateCurrentBar;
-            newEnemy.OnChangeBar += SetupBarElementImage;
+            newEnemy.OnTakeDamage += UpdateCurrentBarSize;
+            newEnemy.OnChangeBar += UpdateCurrentBarImage;
 
             //Instantiate new bars for the new enemy
             for (int i = 0; i < newEnemy.HealthBars.Count; i++)
@@ -61,22 +57,13 @@ namespace Game.UI
                 if (i == 0)
                 {
                     instance.EnableBar();
-                    SetupBarElementImage(newEnemy.CurrentHealthBar);
                 }
             }
         }
 
-        private void SetupBarElementImage(EnemyHealthBar newBar)
+        private void UpdateCurrentBarSize(DamageInfo info)
         {
-            _currentElementImage.sprite = newBar.Element.Image;
-
-            _currentElementImage.transform.DOPunchScale(_punchCurrentElementImage, _duration, _vibration, _elasticity);
-        }
-
-        private void UpdateCurrentBar(DamageInfo info)
-        {
-            HealthBarInstance barInstance =
-                _instantiatedBars.Find(x => x.GetBar == GetCurrentEnemyHealth.CurrentHealthBar);
+            HealthBarInstance barInstance = FindUIBarByHealthBar();
             
             if(barInstance == null)
                 return;
@@ -84,6 +71,23 @@ namespace Game.UI
             barInstance.EnableBar();
             barInstance.UpdateBar();
         }
+
+        private void UpdateCurrentBarImage(Element element)
+        {
+            HealthBarInstance barInstance = FindUIBarByHealthBar();
+
+            if (barInstance == null)
+                return;
+
+            barInstance.ChangeBarInstanceImage(GetCurrentEnemyHealth.CurrentHealthBar.Element.HealthBarInstanceImage);
+        }
+
+        private void UpdateCurrentBarImage(EnemyHealthBar bar)
+        {
+            _uIEnemyAttackElement.UpdateImage(bar.Element);
+        }
+
+        private HealthBarInstance FindUIBarByHealthBar() => _instantiatedBars.Find(x => x.GetBar == GetCurrentEnemyHealth.CurrentHealthBar);
 
         private void DeletePreviousBars()
         {

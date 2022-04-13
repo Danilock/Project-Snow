@@ -18,9 +18,6 @@ namespace Game.Player
         private IEnumerator _hitStreak;
         [FormerlySerializedAs("_hitStreakHasEnded")] [DisableInPlayMode, SerializeField, FoldoutGroup("Killing Streak")] private bool _hitStreakIsOff = false;
 
-        [FoldoutGroup("Killing Streak")] [SerializeField]
-        private int _incrementPerHit = 2;
-
         [FoldoutGroup("Killing Streak"), SerializeField, DisableInPlayMode]
         private int _currentHitCount = 0;
         

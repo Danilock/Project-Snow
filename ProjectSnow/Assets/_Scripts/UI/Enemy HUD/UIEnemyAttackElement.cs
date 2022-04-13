@@ -40,18 +40,18 @@ namespace Game.UI
         private void Start()
         {
             EnemyQueueManager.Instance.OnElementDecided += UpdateImage;
-            EnemyQueueManager.Instance.OnAttack += DoFadeImage;
 
             _image = GetComponent<Image>();
+
+            UpdateImage(EnemyQueueManager.Instance.GetCurrentEnemy.CurrentHealthBar.Element);
         }
 
         private void OnDisable()
         {
             EnemyQueueManager.Instance.OnElementDecided -= UpdateImage;
-            EnemyQueueManager.Instance.OnAttack -= DoFadeImage;
         }
 
-        private void UpdateImage(Element element)
+        public void UpdateImage(Element element)
         {
             _currentElementImage.sprite = element.Image;
 
@@ -62,6 +62,9 @@ namespace Game.UI
             _currentElementImage.transform.DOPunchScale(_scale, _duration, _vibration, _elasticity);
         }
 
+        /// <summary>
+        /// Use to hide the image once the enemy attack is done.
+        /// </summary>
         private void DoFadeImage()
         {
             _currentElementImage.DOFade(0f, .3f);

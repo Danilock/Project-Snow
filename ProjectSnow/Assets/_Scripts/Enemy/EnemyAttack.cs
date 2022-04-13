@@ -99,12 +99,16 @@ public class EnemyAttack : BaseAbility
         CanUse = false;
 
         _secondsBeforeChargeAttack = Random.Range(_min, _max);
-
-        _currentRandomElement = PickRandomElement;
-        
-        _attack.ChangeElement(_currentRandomElement);
         
         yield return new WaitForSeconds(_secondsBeforeChargeAttack);
+
+        _currentRandomElement = PickRandomElement;
+
+        _attack.ChangeElement(_currentRandomElement);
+
+        _health.ChangeElement(_currentRandomElement);
+
+        _health.CurrentHealthBar.Element = _currentRandomElement;
 
         _chargeAttackCoroutine = ChargeAttack_CO();
         
