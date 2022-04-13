@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Yellow Manati Profile
   m_EditorClassIdentifier: 
   HealthBars:
-  - StartValue: 500
-    CurrentValue: 300
+  - StartValue: 1053
+    CurrentValue: 0
     Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
-    IsLastHealthBar: 1
+    IsLastHealthBar: 0
   Damage: 5
   Cooldown: 0.5
   MinCooldown: 3

@@ -93,9 +93,13 @@ namespace Game.Enemy
 
         public void SetHealthBars(List<EnemyHealthBar> newBarsList)
         {
-            for(int i = 0; i < newBarsList.Count; i++)
+            if (_healthBars != null)
+                _healthBars.Clear();
+
+            foreach(EnemyHealthBar bar in newBarsList)
             {
-                _healthBars[i] = new EnemyHealthBar(newBarsList[i].StartValue, newBarsList[i].Element);
+                Debug.Log("Bar");
+                _healthBars.Add(new EnemyHealthBar(bar.StartValue, bar.Element));
             }
         }
     }

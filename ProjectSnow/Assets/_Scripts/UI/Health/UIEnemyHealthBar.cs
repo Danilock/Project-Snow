@@ -57,6 +57,7 @@ namespace Game.UI
                 if (i == 0)
                 {
                     instance.EnableBar();
+                    UpdateCurrentBarImage(newEnemy.CurrentHealthBar);
                 }
             }
         }
