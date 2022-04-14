@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37b236ce46d220d4aabeeb396badac96, type: 3}
-  m_Name: Smuffy Profile
+  m_Name: Grinpy Profile
   m_EditorClassIdentifier: 
   HealthBars:
-  - StartValue: 2457
+  - StartValue: 7895
     CurrentValue: 0
-    Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
+    Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
+    IsLastHealthBar: 0
+  - StartValue: 7807
+    CurrentValue: 0
+    Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
     IsLastHealthBar: 0
   Damage: 5
   Cooldown: 0.5
@@ -26,10 +30,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
-  EnemySprite: {fileID: 21300000, guid: dd898354d9f2b62459863a6dd8b59275, type: 3}
+  EnemySprite: {fileID: 21300000, guid: f2e5b4be03e3dca458035f65da32df8f, type: 3}
   BodyOffset: {x: 0, y: -1.12, z: 0}
   TargetScaleSize: {x: 0.3, y: 0.3, z: 1}
   Duration: 0.15
   Elasticity: 1
   Vibration: 3
-  RuntimeAnimator: {fileID: 22100000, guid: ab698059cd1f3464686ed97b2a58f4d6, type: 2}
+  RuntimeAnimator: {fileID: 22100000, guid: 0f85f88af40b5754b95e0b9f94dd340c, type: 2}
