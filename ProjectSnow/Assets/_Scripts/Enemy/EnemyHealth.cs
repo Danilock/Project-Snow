@@ -98,7 +98,6 @@ namespace Game.Enemy
 
             foreach(EnemyHealthBar bar in newBarsList)
             {
-                Debug.Log("Bar");
                 _healthBars.Add(new EnemyHealthBar(bar.StartValue, bar.Element));
             }
         }

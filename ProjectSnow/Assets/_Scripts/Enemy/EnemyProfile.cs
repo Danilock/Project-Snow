@@ -36,5 +36,9 @@ namespace Game.Enemy
         public int Vibration = 25;
 
         #endregion
+
+        #region Animator
+        public RuntimeAnimatorController RuntimeAnimator;
+        #endregion
     }
 }

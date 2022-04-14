@@ -37,11 +37,14 @@ namespace Game.UI
 
         #endregion
 
+        private void Awake()
+        {
+            _image = GetComponent<Image>();
+        }
+
         private void Start()
         {
             EnemyQueueManager.Instance.OnElementDecided += UpdateImage;
-
-            _image = GetComponent<Image>();
 
             UpdateImage(EnemyQueueManager.Instance.GetCurrentEnemy.CurrentHealthBar.Element);
         }

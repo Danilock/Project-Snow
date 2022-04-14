@@ -1649,7 +1649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemiesToSpawn:
   - {fileID: 11400000, guid: 966fbc5be98e8af44b2dfb9604a1089f, type: 2}
-  - {fileID: 11400000, guid: 35f9d651d9b56ed4ea8ba33da0f64919, type: 2}
+  - {fileID: 11400000, guid: 20eb9ccca73c10748b5394ee0c33243b, type: 2}
+  - {fileID: 11400000, guid: ee62275d93107b8498547ac4d27ab1e4, type: 2}
   _enemyPrefab: {fileID: 7410336974678823402, guid: 58b4ec18bab8a024ca71665fb2920cde, type: 3}
   _enemies: []
 --- !u!4 &639773457

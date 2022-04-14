@@ -26,9 +26,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
-  EnemySprite: {fileID: 21300000, guid: 077c6bf5c768726468c786b3244df9e6, type: 3}
+  EnemySprite: {fileID: 21300000, guid: a7a6c2f61764503489c36a5293ffc256, type: 3}
   BodyOffset: {x: 0, y: -1.12, z: 0}
   TargetScaleSize: {x: 0.3, y: 0.3, z: 1}
   Duration: 0.15
   Elasticity: 1
   Vibration: 3
+  RuntimeAnimator: {fileID: 22100000, guid: 39169e1bfe015674c9f4f071a57e633e, type: 2}

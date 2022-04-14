@@ -16,9 +16,16 @@ namespace Game.Enemy
         [SerializeField] private EnemyHealth _health;
 
         [SerializeField] private DoScale _scale;
+
+        public Animator Animator;
         
         [FoldoutGroup("Art")] [SerializeField] private SpriteRenderer _renderer;
-        
+
+        private void Awake()
+        {
+            Animator = GetComponent<Animator>();
+        }
+
         private bool InitializeDependenciesIsSucess()
         {
             if (_attack == null)
@@ -41,6 +48,8 @@ namespace Game.Enemy
             _health.SetHealthBars(_profile.HealthBars);
             _health.InitializeBars();
             _health.SelectBar(0);
+
+            Animator.runtimeAnimatorController = _profile.RuntimeAnimator;
             
             _scale.SetScaleProperties(_profile.TargetScaleSize, _profile.Duration, _profile.Vibration, _profile.Elasticity);
             _renderer.sprite = _profile.EnemySprite;

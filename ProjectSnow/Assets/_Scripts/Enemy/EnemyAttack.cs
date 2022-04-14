@@ -13,8 +13,14 @@ using Random = UnityEngine.Random;
 
 public class EnemyAttack : BaseAbility
 {
+    #region Enemy Controller
+
+    [SerializeField] private EnemyController _controller;
+
+    #endregion
+
     #region Cooldown and Attack
-    
+
     [FoldoutGroup("Minimum and Maximun cooldown")]
     [SerializeField] private float _min, _max;
 
@@ -45,10 +51,6 @@ public class EnemyAttack : BaseAbility
     #endregion
     #region Animator
 
-    [FoldoutGroup("Animator")] 
-    [SerializeField]
-    private Animator _animator;
-
     private static readonly int HashChargeAttack = Animator.StringToHash("ChargeAttack");
     private static readonly int HashAttack = Animator.StringToHash("Attack");
 
@@ -74,9 +76,11 @@ public class EnemyAttack : BaseAbility
         HandleCooldownCoroutine = HandleCooldown_CO();
         _chargeAttackCoroutine = ChargeAttack_CO();
 
-        _animator = GetComponent<Animator>();
         _health = GetComponent<EnemyHealth>();
         _attack = GetComponent<Attack>();
+
+        if (_controller == null)
+            _controller = GetComponent<EnemyController>();
     }
 
     private void Start()
@@ -130,12 +134,12 @@ public class EnemyAttack : BaseAbility
 
     private IEnumerator ChargeAttack_CO()
     {
-        _animator.SetTrigger(HashChargeAttack);
+        _controller.Animator.SetTrigger(HashChargeAttack);
         _health.SetInvulnerable(true);
         
         yield return new WaitForSeconds(_secondsChargeAttack);
         
-        _animator.SetTrigger(HashAttack);
+        _controller.Animator.SetTrigger(HashAttack);
         _health.SetInvulnerable(false);
     }
 
