@@ -69,6 +69,13 @@ namespace Game.Player
         #region Art
         public void SetShieldShader(bool state)
         {
+            if (state)
+            {
+                _shieldMaterial?.SetColor("_OutlineColor", _damageable.Shield.Element.Color);
+                _shieldMaterial?.SetColor("_HologramStripeColor", _damageable.Shield.Element.Color);
+                _shieldMaterial?.SetColor("_Color", _damageable.Shield.Element.Color);
+            }
+
             _shieldMaterial?.DOFloat(state ? 1f : 0f, "_Alpha", .4f);
         }
         #endregion
