@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 
 namespace Game.UI
 {
-    public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
+    public class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
     {
 
         [FoldoutGroup("Tweening")]
@@ -54,6 +54,11 @@ namespace Game.UI
         public virtual void OnPointerUp(PointerEventData eventData)
         {
             transform.DOScale(InitialScale, _duration);
+        }
+
+        public virtual void OnPointerDown(PointerEventData eventData)
+        {
+            
         }
     }
 }

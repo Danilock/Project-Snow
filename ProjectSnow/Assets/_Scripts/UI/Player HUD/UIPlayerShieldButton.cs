@@ -3,37 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Managers;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Game.UI
 {
     public class UIPlayerShieldButton : BaseButton
     {
-        [SerializeField] private Button _button;
-
-        private void Awake()
+        public override void OnPointerDown(PointerEventData eventData)
         {
-            if (_button == null)
-                _button = GetComponent<Button>();
+            base.OnPointerDown(eventData);
+
+            LevelManager.Instance.GetPlayer.GetPlayerShieldUsage.SetShieldState(true);
         }
 
-        protected override void Start()
+        public override void OnPointerUp(PointerEventData eventData)
         {
-            base.Start();
-        }
+            base.OnPointerUp(eventData);
 
-        private void OnEnable()
-        {
-            _button.onClick.AddListener(UsePlayerShield);
-        }
-
-        private void OnDisable()
-        {
-            _button.onClick.RemoveListener(UsePlayerShield);
-        }
-
-        private void UsePlayerShield()
-        {
-            LevelManager.Instance.GetPlayer.GetPlayerShieldUsage.TriggerAbility();
+            LevelManager.Instance.GetPlayer.GetPlayerShieldUsage.SetShieldState(false);
         }
     }
 }

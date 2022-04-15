@@ -47,5 +47,7 @@ namespace Game.Player
             yield return new WaitForSeconds(_shieldDuration);
             _damageable.Shield.IsActive = false;
         }
+
+        public void SetShieldState(bool state) => _damageable.Shield.IsActive = state;
     }
 }
