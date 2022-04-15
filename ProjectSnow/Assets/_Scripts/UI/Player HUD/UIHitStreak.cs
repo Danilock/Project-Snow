@@ -1,16 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using Game.DamageSystem;
-using Game.Enemy;
 using Game.Player;
 using Game.Tween;
-using Managers;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game.UI
 {
@@ -32,9 +24,9 @@ namespace Game.UI
             PlayerHitStreak.EndHitStreak -= HideHitText;
         }
 
-        private void UpdateHitUI(int amount)
+        private void UpdateHitUI(float amount)
         {
-            _hitScore.text = $"x{amount.ToString()}";
+            _hitScore.text = $"x{((int)amount).ToString()}";
             Scale();
         }
 

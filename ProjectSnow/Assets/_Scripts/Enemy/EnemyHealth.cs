@@ -24,13 +24,7 @@ namespace Game.Enemy
 
         [SerializeField] private UnityEvent _onHit;
 
-        private bool IsLastHealthBar
-        {
-            get
-            {
-                return _currentIndex == _healthBars.Count - 1;
-            }
-        }
+       
         public override void DoDamage(DamageInfo incomingDamage)
         {
             if ((Invulnerable && !incomingDamage.IgnoreInvulnerability) || IsDead)

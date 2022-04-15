@@ -15,15 +15,20 @@ namespace Game.Player
         [FoldoutGroup("Killing Streak")] 
         [SerializeField]
         private float _streakDuration = 2.5f;
+
+        [SerializeField] private float _amountToIncrease = 1.3f;
+
         private IEnumerator _hitStreak;
+        
+        
         [FormerlySerializedAs("_hitStreakHasEnded")] [DisableInPlayMode, SerializeField, FoldoutGroup("Killing Streak")] private bool _hitStreakIsOff = false;
 
         [FoldoutGroup("Killing Streak"), SerializeField, DisableInPlayMode]
-        private int _currentHitCount = 0;
+        private float _currentHitCount = 0;
         
         public static UnityAction StartHitStreak;
         public static UnityAction EndHitStreak;
-        public static UnityAction<int> OnHit;
+        public static UnityAction<float> OnHit;
         #endregion
 
         #region Dependencies
@@ -45,6 +50,15 @@ namespace Game.Player
         /// </summary>
         private void InitializeHitStreak()
         {
+            if (!_hitStreakIsOff)
+            {
+                StopCoroutine(_hitStreak);
+
+                _hitStreak = KillingStreak_CO();
+
+                StartCoroutine(_hitStreak);
+            }
+
             _hitStreak = KillingStreak_CO();
             StartCoroutine(_hitStreak);
         }
@@ -54,7 +68,8 @@ namespace Game.Player
             if(_hitStreakIsOff)
                 StartHitStreak?.Invoke();
 
-            _currentHitCount *= 2;
+            _hitStreakIsOff = false;
+            _currentHitCount *= _amountToIncrease;
             OnHit?.Invoke(_currentHitCount);
             yield return new WaitForSeconds(_streakDuration);
             EndHitStreak?.Invoke();
