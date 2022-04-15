@@ -17,6 +17,13 @@ namespace Game.Player
 
         [SerializeField] private float _shieldDuration = 1f;
 
+
+        #region Shield
+        [SerializeField] private GameObject _shieldGameObject;
+
+        Material _shieldMaterial;
+        #endregion
+
         public float ShieldDamageOnBlock => _shieldDamageOnBlock;
 
         private void Start()
@@ -25,6 +32,10 @@ namespace Game.Player
                 _damageable = GetComponent<Damageable>();
             
             PlayerInput.Instance.Actions.Player.Shield.performed += ShieldOnperformed;
+
+            _shieldMaterial = _shieldGameObject.GetComponent<Renderer>().material;
+
+            _shieldMaterial.SetFloat("_Alpha", 0f);
         }
 
         private void ShieldOnperformed(InputAction.CallbackContext obj)
@@ -48,6 +59,18 @@ namespace Game.Player
             _damageable.Shield.IsActive = false;
         }
 
-        public void SetShieldState(bool state) => _damageable.Shield.IsActive = state;
+        public void SetShieldState(bool state)
+        {
+            _damageable.Shield.IsActive = state;
+
+            SetShieldShader(state);
+        }
+
+        #region Art
+        public void SetShieldShader(bool state)
+        {
+            _shieldMaterial?.DOFloat(state ? 1f : 0f, "_Alpha", .4f);
+        }
+        #endregion
     }
 }
