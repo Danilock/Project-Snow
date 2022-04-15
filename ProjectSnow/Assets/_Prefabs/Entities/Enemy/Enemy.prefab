@@ -214,6 +214,7 @@ MonoBehaviour:
   IsSourceRequired: 1
   EnergySource: {fileID: 0}
   RequiredEnergy: 0
+  _controller: {fileID: 0}
   _min: 1
   _max: 6
   _attack: {fileID: 7410336974678823378}
@@ -223,7 +224,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
   _secondsChargeAttack: 2
-  _animator: {fileID: 0}
 --- !u!95 &7410336974678823403
 Animator:
   serializedVersion: 3
@@ -277,6 +277,7 @@ MonoBehaviour:
   _attack: {fileID: 7410336974678823400}
   _health: {fileID: 7410336974678823379}
   _scale: {fileID: 7410336974678823380}
+  Animator: {fileID: 0}
   _renderer: {fileID: 7410336976119236253}
 --- !u!1 &7410336975118383516
 GameObject:
@@ -517,7 +518,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -177767365
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dd2ca1691b373b34ab6d065b4b748518, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -526,7 +527,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7410336976696622644
