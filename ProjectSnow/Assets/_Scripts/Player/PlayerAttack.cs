@@ -16,16 +16,21 @@ namespace Game.Player
         [SerializeField] private Attack _attack;
 
         [FoldoutGroup("On Hit"), SerializeField] private float _energyToRecover = 3f;
+
+        private PlayerHealth _health;
+
         private EnergySource _energy;
 
         private void Start()
         {
             PlayerInput.Instance.Actions.Player.Attack.canceled += AttackOncanceled;
+
+            _health = GetComponent<PlayerHealth>();
             _energy = GetComponent<EnergySource>();
 
             if (_attack == null)
                 _attack = GetComponent<Attack>();
-            
+
             _attack.OnHit.AddListener(RecoverEnergyOnHit);
         }
 
@@ -42,7 +47,7 @@ namespace Game.Player
 
         public override void TriggerAbility()
         {
-            if(!CanUse)
+            if (!CanUse || _health.Shield.IsActive)
                 return;
 
             _attack.DoAttack();
