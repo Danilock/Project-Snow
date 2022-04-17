@@ -27,15 +27,21 @@ namespace Game.UI
         {
             if(_target == Target.Attack)
                 LevelManager.Instance.GetPlayer.GetPlayerElementSwitch.SelectPlayerElement(_elemetToChoose);
-            else
+            else if(_target == Target.Shield)
                 LevelManager.Instance.GetPlayer.GetPlayerHealth.Shield.ChangeElement(_elemetToChoose);
-            
+            else if(_target == Target.Both)
+            {
+                LevelManager.Instance.GetPlayer.GetPlayerElementSwitch.SelectPlayerElement(_elemetToChoose);
+                LevelManager.Instance.GetPlayer.GetPlayerHealth.Shield.ChangeElement(_elemetToChoose);
+            }
+
             _cursor.SetCursor(this);
         }
     }
     public enum Target
     {
         Attack,
-        Shield
+        Shield,
+        Both
     }
 }
