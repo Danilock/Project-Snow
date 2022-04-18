@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-namespace Camera
+namespace Game.CameraSystem
 {
     public class PlayerShieldImpulse : MonoBehaviour
     {

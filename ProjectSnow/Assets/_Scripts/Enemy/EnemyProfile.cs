@@ -24,6 +24,7 @@ namespace Game.Enemy
         #region Art
 
         [PreviewField] public Sprite EnemySprite;
+        [PreviewField] public Sprite HitEffect;
         public Vector3 BodyOffset;
         
         [FoldoutGroup("Scale On Hit")]

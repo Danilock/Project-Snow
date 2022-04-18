@@ -8,7 +8,7 @@ using Game.Enemy;
 using Managers;
 using Sirenix.OdinInspector;
 
-namespace Game.Camera
+namespace Game.CameraSystem
 {
     public class CameraController : MonoBehaviour
     {
