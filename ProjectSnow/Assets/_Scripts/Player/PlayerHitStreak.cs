@@ -11,6 +11,12 @@ namespace Game.Player
 {
     public class PlayerHitStreak : SceneSingleton<PlayerHitStreak>
     {
+        #region Killing Streak Phases
+        [SerializeField] private List<KillingStreakPhase> _killingStreakPhases;
+        [SerializeField, ReadOnly] private KillingStreakPhase _currentPhase;
+        private int _index;
+        #endregion
+
         #region Hit Streak
         [FoldoutGroup("Killing Streak")] 
         [SerializeField]
@@ -28,7 +34,8 @@ namespace Game.Player
         
         public static UnityAction StartHitStreak;
         public static UnityAction EndHitStreak;
-        public static UnityAction<float> OnHit;
+        public static UnityAction<KillingStreakData> OnHit;
+        public static UnityAction<KillingStreakPhase> OnChangePhase;
         #endregion
 
         #region Dependencies
@@ -43,6 +50,8 @@ namespace Game.Player
                 _attack = GetComponent<Attack>();
 
             _attack.OnHit.AddListener(InitializeHitStreak);
+
+            PickStreakPhaseByIndex(0);
         }
 
         /// <summary>
@@ -70,11 +79,71 @@ namespace Game.Player
 
             _hitStreakIsOff = false;
             _currentHitCount *= _amountToIncrease;
-            OnHit?.Invoke(_currentHitCount);
+
+            CheckIfCurrentStreakPhaseHasOvercome();
+
+            OnHit?.Invoke(new KillingStreakData(_currentPhase, _currentHitCount));
+            
+            //Wait for seconds
             yield return new WaitForSeconds(_streakDuration);
+            
             EndHitStreak?.Invoke();
             _hitStreakIsOff = true;
             _currentHitCount = 1;
+            ResetAllPhases();
+        }
+
+        private void CheckIfCurrentStreakPhaseHasOvercome()
+        {
+            if (_index == _killingStreakPhases.Count - 1)
+                return;
+
+            if(_currentHitCount > _killingStreakPhases[_index + 1].AmounToOvercome)
+            {
+                _currentPhase.HasBeenOvercome = true;
+
+                _index = (_index + 1) % _killingStreakPhases.Count;
+
+                PickStreakPhaseByIndex(_index);
+            }
+        }
+
+        private void PickStreakPhaseByIndex(int index)
+        {
+            _currentPhase = _killingStreakPhases[index];
+
+            OnChangePhase?.Invoke(_currentPhase);
+        }
+
+        private void ResetAllPhases()
+        {
+            foreach(KillingStreakPhase currentPhase in _killingStreakPhases)
+            {
+                currentPhase.HasBeenOvercome = false;
+            }
+
+            _currentPhase = _killingStreakPhases[0];
+        }
+    }
+
+    [System.Serializable]
+    public class KillingStreakPhase
+    {
+        public string StrakPhaseName;
+        public int AmounToOvercome;
+        public bool HasBeenOvercome;
+        public Color Color;
+    }
+
+    public class KillingStreakData
+    {
+        public KillingStreakPhase Phase;
+        public float CurrentHitCount;
+
+        public KillingStreakData(KillingStreakPhase phase, float currentHitCount)
+        {
+            Phase = phase;
+            CurrentHitCount = currentHitCount;
         }
     }
 }
