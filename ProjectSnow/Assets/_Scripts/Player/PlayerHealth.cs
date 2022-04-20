@@ -10,6 +10,7 @@ namespace Game.Player
     public class PlayerHealth : Damageable
     {
         [SerializeField] private UnityEvent _onShieldBlock;
+        [SerializeField] private UnityEvent _onTakeDamage;
         
         private PlayerShieldUsage _shieldUsage;
 
@@ -51,19 +52,24 @@ namespace Game.Player
                 KillPlayer(incomingDamage);
             }
 
-            _currentHealth -= EndDamage(incomingDamage);
+            _currentHealth -= incomingDamage.Damage;
 
             if (_currentHealth <= 0)
             {
                 KillPlayer(incomingDamage);
             }
             else
+            {
                 OnTakeDamage?.Invoke(incomingDamage);
+                _onTakeDamage?.Invoke();
+            }
         }
 
         public void KillPlayer(DamageInfo incomingDamage)
         {
             OnDeath?.Invoke(incomingDamage);
+            OnTakeDamage?.Invoke(incomingDamage);
+            _onTakeDamage?.Invoke();
             IsDead = true;
             _currentHealth = 0;
         }

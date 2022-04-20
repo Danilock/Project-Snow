@@ -187,7 +187,7 @@ MonoBehaviour:
   _point: {fileID: 0}
   AttackElement: {fileID: 0}
   IgnoreTargetInvulnerability: 0
-  DamageAmount: 5
+  DamageAmount: 1
   Layers:
     serializedVersion: 2
     m_Bits: 64
