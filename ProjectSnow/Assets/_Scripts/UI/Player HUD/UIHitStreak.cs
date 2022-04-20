@@ -29,6 +29,8 @@ namespace Game.UI
             PlayerHitStreak.StartHitStreak += ShowHitText;
             PlayerHitStreak.EndHitStreak += HideHitText;
             PlayerHitStreak.OnChangePhase += UpdateHitPhaseText;
+
+            UpdateHitPhaseText(PlayerHitStreak.Instance.GetCurrentPhase);
         }
 
         private void OnDisable()
@@ -65,6 +67,12 @@ namespace Game.UI
 
         private void ShowHitText() => _group.DOFade(1f, .3f);
 
-        private void HideHitText() => _group.DOFade(0f, .3f);
+        private void HideHitText()
+        {
+            _group.DOFade(0f, .3f).OnComplete(() =>
+            {
+                _phaseName.text = PlayerHitStreak.Instance.GetCurrentPhase.StrakPhaseName;
+            });
+        }
     }
 }

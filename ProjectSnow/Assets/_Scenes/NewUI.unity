@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Awesome!!!
+  m_text: <Hit_Text>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bafe0b8e59d1cd4d9768f09bf44b839, type: 2}
   m_sharedMaterial: {fileID: 500914682095562727, guid: 4bafe0b8e59d1cd4d9768f09bf44b839, type: 2}
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   _streakDuration: 2.5
   _amountToIncrease: 1.3
   _hitStreakIsOff: 1
-  _currentHitCount: 1
+  _currentHitCount: 1.6
   _attack: {fileID: 262527458}
 --- !u!1 &301847709
 GameObject:
@@ -2591,7 +2591,7 @@ MonoBehaviour:
   _phaseName: {fileID: 11466628}
   _group: {fileID: 1066818795}
   _punchScale: {x: 1, y: 1}
-  _duration: 0.2
+  _durationPhaseTextTweening: 0.3
 --- !u!114 &1066818797
 MonoBehaviour:
   m_ObjectHideFlags: 0

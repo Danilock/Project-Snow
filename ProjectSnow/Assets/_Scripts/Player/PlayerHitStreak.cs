@@ -14,6 +14,9 @@ namespace Game.Player
         #region Killing Streak Phases
         [SerializeField] private List<KillingStreakPhase> _killingStreakPhases;
         [SerializeField, ReadOnly] private KillingStreakPhase _currentPhase;
+
+        public KillingStreakPhase GetCurrentPhase => _currentPhase;
+
         private int _index;
         #endregion
 
@@ -30,6 +33,9 @@ namespace Game.Player
         [FormerlySerializedAs("_hitStreakHasEnded")] [DisableInPlayMode, SerializeField, FoldoutGroup("Killing Streak")] private bool _hitStreakIsOff = false;
 
         [FoldoutGroup("Killing Streak"), SerializeField, DisableInPlayMode]
+        private float _startAmountOfHitCount = 1.6f;
+
+        [FoldoutGroup("Killing Streak"), SerializeField, ReadOnly]
         private float _currentHitCount = 0;
         
         public static UnityAction StartHitStreak;
@@ -50,6 +56,8 @@ namespace Game.Player
                 _attack = GetComponent<Attack>();
 
             _attack.OnHit.AddListener(InitializeHitStreak);
+
+            _currentHitCount = _startAmountOfHitCount;
 
             PickStreakPhaseByIndex(0);
         }
@@ -86,11 +94,11 @@ namespace Game.Player
             
             //Wait for seconds
             yield return new WaitForSeconds(_streakDuration);
-            
-            EndHitStreak?.Invoke();
+
             _hitStreakIsOff = true;
-            _currentHitCount = 1;
+            _currentHitCount = _startAmountOfHitCount;
             ResetAllPhases();
+            EndHitStreak?.Invoke();
         }
 
         private void CheckIfCurrentStreakPhaseHasOvercome()
@@ -122,7 +130,9 @@ namespace Game.Player
                 currentPhase.HasBeenOvercome = false;
             }
 
-            _currentPhase = _killingStreakPhases[0];
+            _index = 0;
+
+            PickStreakPhaseByIndex(0);
         }
     }
 
