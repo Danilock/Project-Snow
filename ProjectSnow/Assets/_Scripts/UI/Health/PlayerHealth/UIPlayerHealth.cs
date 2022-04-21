@@ -57,7 +57,7 @@ namespace Game.UI
 
             yield return new WaitForEndOfFrame();
 
-            _horizontalLayoutGroup.enabled = false;
+            //_horizontalLayoutGroup.enabled = false;
         }
     }
 }

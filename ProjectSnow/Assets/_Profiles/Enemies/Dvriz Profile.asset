@@ -25,7 +25,7 @@ MonoBehaviour:
     CurrentValue: 0
     Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
     IsLastHealthBar: 0
-  Damage: 5
+  Damage: 1
   Cooldown: 0.5
   MinCooldown: 3
   MaxCooldown: 6

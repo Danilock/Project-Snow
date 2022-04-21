@@ -21,7 +21,7 @@ MonoBehaviour:
     CurrentValue: 0
     Element: {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
     IsLastHealthBar: 0
-  Damage: 5
+  Damage: 1
   Cooldown: 0.5
   MinCooldown: 3
   MaxCooldown: 6
@@ -31,6 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
   - {fileID: 11400000, guid: 8b618a4081cd6254d9ada954a3e7f18e, type: 2}
   EnemySprite: {fileID: 21300000, guid: f2e5b4be03e3dca458035f65da32df8f, type: 3}
+  HitEffect: {fileID: 0}
   BodyOffset: {x: 0, y: -1.12, z: 0}
   TargetScaleSize: {x: 0.3, y: 0.3, z: 1}
   Duration: 0.15
