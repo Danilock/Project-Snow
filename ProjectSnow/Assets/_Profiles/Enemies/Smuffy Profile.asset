@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Smuffy Profile
   m_EditorClassIdentifier: 
   HealthBars:
-  - StartValue: 2457
+  - StartValue: 7273
     CurrentValue: 0
     Element: {fileID: 11400000, guid: caead0a2c61cdda439e037d36ab16a6e, type: 2}
     IsLastHealthBar: 0
