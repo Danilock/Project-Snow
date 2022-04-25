@@ -19,8 +19,8 @@ MonoBehaviour:
     IsLastHealthBar: 0
   Damage: 2
   Cooldown: 0.5
-  MinCooldown: 3
-  MaxCooldown: 6
+  MinCooldown: 2
+  MaxCooldown: 4
   SecondsInChargeAttackState: 2
   PossibleElements:
   - {fileID: 11400000, guid: 403d557018ed07d4280133cdd9fcfd55, type: 2}
