@@ -42,6 +42,9 @@ namespace Game.UI
 
             for(int i = _healthInstances.Count - 1; i > _index - 1; i--)
             {
+                if (i < 0)
+                    return;
+
                 _healthInstances[i].DesactivateHeart(_heartSizeOnDesactivate, _duration);
             }
         }
