@@ -12,6 +12,8 @@ namespace Game.UI
     {
         [FoldoutGroup("Pool")]
         [SerializeField] private string _hitStatsPool;
+        [FoldoutGroup("Effect position")]
+        [SerializeField] private Transform _effectPosition;
         
         private Damageable _damageable;
 
@@ -42,7 +44,7 @@ namespace Game.UI
             GameObject obj = ObjectPooler.Instance.GetObjectFromPool(_hitStatsPool);
             DamageHitUI hitUi = obj.GetComponent<DamageHitUI>();
 
-            obj.transform.position = transform.position;
+            obj.transform.position = _effectPosition.position;
             hitUi.Init(info);
         }
 

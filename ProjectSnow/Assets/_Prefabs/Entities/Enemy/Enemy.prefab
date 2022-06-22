@@ -42,6 +42,7 @@ Transform:
   - {fileID: 7410336976696622647}
   - {fileID: 7410336975127537673}
   - {fileID: 5260962425546840196}
+  - {fileID: 7859450124003417547}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitStatsPool: Damage Hit Stat
+  _effectPosition: {fileID: 7859450124003417547}
 --- !u!114 &7410336974678823378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +649,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 400
+--- !u!1 &8726986834304121261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7859450124003417547}
+  m_Layer: 7
+  m_Name: Effect Hit Stat Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7859450124003417547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726986834304121261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.25, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7410336974678823401}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1418524212860697353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 7966331545265957043, guid: 67855c8580c68bf40b56d76cc2b6892f, type: 3}
       propertyPath: m_Name
       value: Hit Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966331545265957043, guid: 67855c8580c68bf40b56d76cc2b6892f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67855c8580c68bf40b56d76cc2b6892f, type: 3}

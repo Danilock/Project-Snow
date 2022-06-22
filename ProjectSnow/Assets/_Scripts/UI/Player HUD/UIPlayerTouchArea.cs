@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Managers;
 using Game.DamageSystem;
+using Game.Enemy;
 
 namespace Game.UI
 {
@@ -15,12 +16,14 @@ namespace Game.UI
         {
             EnemyQueueManager.Instance.OnElementDecided += DisableAttack;
             EnemyQueueManager.Instance.OnAttack += EnableAttack;
+            EnemyQueueManager.Instance.OnChangeEnemy += EnableAttack;
         }
 
         private void OnDisable()
         {
             EnemyQueueManager.Instance.OnElementDecided -= DisableAttack;
             EnemyQueueManager.Instance.OnAttack -= EnableAttack;
+            EnemyQueueManager.Instance.OnChangeEnemy -= EnableAttack;
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -35,6 +38,11 @@ namespace Game.UI
         }
 
         private void EnableAttack()
+        {
+            _canAttack = true;
+        }
+        
+        private void EnableAttack(EnemyHealth health)
         {
             _canAttack = true;
         }
