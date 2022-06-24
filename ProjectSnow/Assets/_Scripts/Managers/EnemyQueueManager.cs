@@ -24,9 +24,6 @@ namespace Managers
         private EnemyHealth _currentEnemy;
         
         private int _currentEnemyIndex = 0;
-
-        public int GetCurrentIndex => _currentEnemyIndex;
-        public int GetAmountOfEnemies => _enemies.Count;
         #endregion
 
         #region Public Fields
@@ -38,6 +35,9 @@ namespace Managers
         private EnemyAttack _enemyAttack;
 
         public EnemyAttack GetEnemyAttack => _enemyAttack;
+
+        public int GetCurrentIndex => _currentEnemyIndex;
+        public int GetAmountOfEnemies => _enemies.Count;
 
         #endregion
 
