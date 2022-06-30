@@ -8,4 +8,9 @@ public static class TransformExtensions
     {
         tr.position = new Vector3(tr.position.x, tr.position.y, newZ);
     }
+
+    public static void SetXPosition(this Transform tr, float newX)
+    {
+        tr.position = new Vector3(newX, tr.position.y, tr.position.z);
+    }
 }

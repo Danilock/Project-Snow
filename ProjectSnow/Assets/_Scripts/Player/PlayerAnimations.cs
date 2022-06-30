@@ -20,6 +20,8 @@ namespace Game.Player
 
         [SerializeField] private int _attackIndex;
 
+        [SerializeField] private Transform _shieldTransform;
+
         private PlayerAttack _attack;
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int AttackIndex = Animator.StringToHash("AttackIndex");
@@ -47,6 +49,8 @@ namespace Game.Player
         {
             _animator.SetTrigger(Attack);
             _animator.SetInteger(AttackIndex, _attackIndex);
+
+            _shieldTransform.localPosition = new Vector3(_attackIndex != 0f ? -0.12f : 0.52f, _shieldTransform.transform.localPosition.y, _shieldTransform.localPosition.z);
 
             _attackIndex = (_attackIndex + 1) % 2;
         }
