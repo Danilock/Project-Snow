@@ -22,15 +22,18 @@ namespace Game.AbilitySystem
         public float GetCurrentEnergy => CurrentEnergy;
 
 
-        protected void Start()
+        protected virtual void Start()
         {
             CurrentEnergy = MaxEnergy;
 
             RegenerateEnergyCoroutine = RegenerateEnergy_CO();
         }
 
-        protected void OnValidate()
+        protected virtual void OnValidate()
         {
+            if (Application.isPlaying)
+                return;
+
             if (CurrentEnergy > MaxEnergy)
                 CurrentEnergy = MaxEnergy;
         }
@@ -62,7 +65,7 @@ namespace Game.AbilitySystem
                 StartCoroutine(RegenerateEnergyCoroutine);
         }
 
-        protected IEnumerator RegenerateEnergy_CO()
+        protected virtual IEnumerator RegenerateEnergy_CO()
         {
             IsRegenerating = true;
             

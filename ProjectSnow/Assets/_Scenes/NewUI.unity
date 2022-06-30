@@ -4696,6 +4696,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9029520814415025417, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: MaxEnergy
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025417, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: CanRegenerate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025417, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: CurrentEnergy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025422, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: RequiredEnergy
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025422, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: _shieldDuration
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025422, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: IsSourceRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9029520814303726830}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddEnergy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.AbilitySystem.EnergySource, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025423, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9029520814415025458, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4744,6 +4800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9029520814415025463, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+      propertyPath: IsSourceRequired
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9029520816006133977, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
       propertyPath: outlineMaterial
       value: 
@@ -4754,3 +4814,14 @@ PrefabInstance:
       objectReference: {fileID: 2137737012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+--- !u!114 &9029520814303726830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9029520814415025417, guid: cfbbf400d0bb9594da97ea19298ff4a2, type: 3}
+  m_PrefabInstance: {fileID: 9029520814303726829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765482b5ccf597f49bd31b25e239f759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

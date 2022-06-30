@@ -54,9 +54,9 @@ namespace Game.Player
 
         private IEnumerator HandleShieldDuration_CO()
         {
-            _damageable.Shield.IsActive = true;
+            SetShieldState(true);
             yield return new WaitForSeconds(_shieldDuration);
-            _damageable.Shield.IsActive = false;
+            SetShieldState(false);
         }
 
         public void SetShieldState(bool state)

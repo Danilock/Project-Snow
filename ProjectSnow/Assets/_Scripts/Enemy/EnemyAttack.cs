@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
+using EventDriven;
 
 public class EnemyAttack : BaseAbility
 {
@@ -154,4 +155,6 @@ public class EnemyAttack : BaseAbility
     public void SetPossibleElements(List<Element> elements) => _possibleElements = elements;
 
     public void SetSecondsInChargeAttackState(float seconds) => _secondsChargeAttack = seconds;
+
+    public void AllowPlayerToAttack() => EventManager.TriggerEvent(new DisallowPlayerToAttack());
 }
