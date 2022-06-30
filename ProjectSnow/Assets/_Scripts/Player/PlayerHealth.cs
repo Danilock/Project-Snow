@@ -11,7 +11,9 @@ namespace Game.Player
     {
         [SerializeField] private UnityEvent _onShieldBlock;
         [SerializeField] private UnityEvent _onTakeDamage;
-        
+
+        public UnityEvent OnShieldBlock => _onShieldBlock;
+
         private PlayerShieldUsage _shieldUsage;
 
         protected override void Start()

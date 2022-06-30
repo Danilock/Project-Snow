@@ -12,7 +12,7 @@ namespace Game.Player
 {
     public class PlayerShieldUsage : BaseAbility
     {
-        [SerializeField] private Damageable _damageable;
+        [SerializeField] private PlayerHealth _damageable;
         [SerializeField, Range(0, 100)] private float _shieldDamageOnBlock = 20f;
 
         [SerializeField] private float _shieldDuration = 1f;
@@ -29,9 +29,11 @@ namespace Game.Player
         private void Start()
         {
             if (_damageable == null)
-                _damageable = GetComponent<Damageable>();
+                _damageable = GetComponent<PlayerHealth>();
             
             PlayerInput.Instance.Actions.Player.Shield.performed += ShieldOnperformed;
+
+            _damageable.OnShieldBlock.AddListener(() => EnergySource.UseEnergy(RequiredEnergy));
 
             _shieldMaterial = _shieldGameObject.GetComponent<Renderer>().material;
 
@@ -48,7 +50,6 @@ namespace Game.Player
             if(!CanUseAbility)
                 return;
 
-            EnergySource.UseEnergy(RequiredEnergy);
             StartCoroutine(HandleShieldDuration_CO());
         }
 
