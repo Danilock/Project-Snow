@@ -36,6 +36,8 @@ namespace Managers
 
         public EnemyAttack GetEnemyAttack => _enemyAttack;
 
+        public EnemyProfile[] GetEnemiesToSpawn => _enemiesToSpawn;
+
         public int GetCurrentIndex => _currentEnemyIndex;
         public int GetAmountOfEnemies => _enemies.Count;
 
