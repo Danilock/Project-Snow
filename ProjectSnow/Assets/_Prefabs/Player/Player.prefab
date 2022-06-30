@@ -222,7 +222,19 @@ MonoBehaviour:
     m_Bits: 128
   OnHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9029520814415025417}
+        m_TargetAssemblyTypeName: Game.AbilitySystem.EnergySource, Scripts
+        m_MethodName: AddEnergy
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 20
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Owner: {fileID: 0}
   DamageAreaSize: {x: 7.09, y: 5.05}
   _focusOn: 0
@@ -324,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 0
   CanUse: 1
-  IsSourceRequired: 1
+  IsSourceRequired: 0
   EnergySource: {fileID: 0}
   RequiredEnergy: 0
   _elemets:
@@ -346,12 +358,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 0.5
   CanUse: 1
-  IsSourceRequired: 0
+  IsSourceRequired: 1
   EnergySource: {fileID: 9029520814415025417}
-  RequiredEnergy: 0
+  RequiredEnergy: 100
   _damageable: {fileID: 9029520814415025421}
   _shieldDamageOnBlock: 20
-  _shieldDuration: 1
+  _shieldDuration: 100
   _shieldGameObject: {fileID: 6991533296948545793}
 --- !u!114 &9029520814415025417
 MonoBehaviour:
@@ -367,10 +379,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RegenerationRate: 0.01
   Seconds: 1
-  CanRegenerate: 1
+  CanRegenerate: 0
   IsRegenerating: 0
-  MaxEnergy: 10
-  CurrentEnergy: 10
+  MaxEnergy: 100
+  CurrentEnergy: 1
 --- !u!114 &9029520814415025416
 MonoBehaviour:
   m_ObjectHideFlags: 0

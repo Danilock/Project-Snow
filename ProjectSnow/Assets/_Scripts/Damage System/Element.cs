@@ -19,6 +19,9 @@ namespace Game.DamageSystem
         [Header("Element color representation, used in UI's."), FoldoutGroup("Art")]
         [ColorPalette] public Color Color;
 
+        [Header("Color on player's shield")]
+        [ColorPalette] public Color ShieldColor;
+
         [PreviewField, FoldoutGroup("Art")]
         public Sprite Image;
 

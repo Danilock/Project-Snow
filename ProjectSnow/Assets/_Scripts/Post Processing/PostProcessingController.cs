@@ -6,15 +6,14 @@ using Game.DamageSystem;
 using Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace Game.PostProcessing
 {
     public class PostProcessingController : MonoBehaviour
     {
-        [SerializeField]private Volume _volume;
-        private Vignette _vignette;
+        [SerializeField] private PostProcessVolume _volume;
+        [SerializeField] private Vignette _vignette;
 
         [Header("Values")] 
         [SerializeField] private float _valueOnNormalScreen = 0.459f;
@@ -43,7 +42,7 @@ namespace Game.PostProcessing
 
         private void SetVignetteIntensityValue(float value)
         {
-            _volume.profile.TryGet(out _vignette);
+            _vignette = _volume.profile.GetSetting<Vignette>();
 
             DOTween.To(() => _vignette.intensity.value, x => _vignette.intensity.value = x, value, _time);
         }

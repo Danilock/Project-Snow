@@ -71,9 +71,9 @@ namespace Game.Player
         {
             if (state)
             {
-                _shieldMaterial?.SetColor("_OutlineColor", _damageable.Shield.Element.Color);
-                _shieldMaterial?.SetColor("_HologramStripeColor", _damageable.Shield.Element.Color);
-                _shieldMaterial?.SetColor("_Color", _damageable.Shield.Element.Color);
+                _shieldMaterial?.SetColor("_OutlineColor", _damageable.Shield.Element.ShieldColor);
+                _shieldMaterial?.SetColor("_HologramStripeColor", _damageable.Shield.Element.ShieldColor);
+                _shieldMaterial?.SetColor("_Color", _damageable.Shield.Element.ShieldColor);
             }
 
             _shieldMaterial?.DOFloat(state ? 1f : 0f, "_Alpha", .4f);
